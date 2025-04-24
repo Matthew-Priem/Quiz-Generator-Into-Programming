@@ -1,0 +1,469 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts} % For math fonts.
+\usepackage{amssymb} % For other math symbols not covered by amsmath.
+\usepackage[pdftex]{graphicx} % For pictures, use %\includegraphics[scale=decimal]{pic.png}; must be a .png file type.
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[colorlinks = true, urlcolor = blue]{hyperref}
+\usepackage{enumitem}
+\usepackage{graphbox} 
+\usepackage{subfig}
+\usepackage{multicol}
+
+\newcommand{\tab}{\hspace*{0.25in}}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, calc}
+\usetikzlibrary{shapes.geometric,angles,quotes}
+\usepackage{tikz-3dplot}
+
+\newcommand{\csq}[1]{\reflectbox{''}#1''}  %This produces CS style quotes.
+
+
+
+\usepackage{fullpage}
+\usepackage{listings}
+\lstset
+{ %Formatting for code in appendix
+    language=Python,
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=2,
+    breaklines=true,
+    breakatwhitespace=false,
+}
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%Errors to test:
+		%ValueError
+		%TypeError
+		%ZeroDivisionError
+		%IndexError
+		%KeyError
+		%FileNotFoundError
+		%RecursionError
+		%OverflowError
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{flushright}
+Exceptions\end{flushright}
+
+\vspace*{-1.5em}
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+
+\vspace*{2em}
+
+\begin{enumerate}
+
+%start_of_questions
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 1
+%%%%%%%%%%%%%%%%%%%%%
+%new_question
+	\item 
+		You're building a simple calculator tool that helps users perform safe division.  
+		It should take a number from the user and divide 10 by that number, handling common 
+		input errors gracefully.\\
+
+		Write a \textbf{program} that asks the user to enter a number and then prints the 
+		result of dividing 10 by that number.  
+		The program should handle two types of errors:
+		\begin{itemize}
+			\item If there is a \textbf{ValueError}, print \csq{Please enter a valid number.}
+			\item If there is a \textbf{ZeroDivisionError}, print \csq{Cannot divide by zero.}
+		\end{itemize}
+
+		\textbf{Examples:}
+		\begin{itemize}
+			\item \csq{Enter a number:} 5 $\rightarrow$ 2.0
+			\item \csq{Enter a number:} 0 $\rightarrow$ \csq{Cannot divide by zero.}
+			\item \csq{Enter a number:} \csq{hello} $\rightarrow$ \csq{Please enter a valid number.}
+		\end{itemize}
+
+%Errors: ValueError, ZeroDivisionError
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 2
+%%%%%%%%%%%%%%%%%%%%%
+%new_question
+	\item 
+		You're building a simple menu selector for a fruit delivery service.  
+		Customers can choose a fruit by entering its index from a list of available options.\\
+
+		Write a \textbf{program} that asks the user to enter an index and then prints the 
+		corresponding item from a predefined list, shown below:
+		\begin{itemize}
+			\item \texttt{[\csq{apple}, \csq{banana}, \csq{cherry}, \csq{date}]}
+		\end{itemize}
+		The program should handle two types of errors:
+		\begin{itemize}
+			\item If the input is not a valid number (\textbf{ValueError}), 
+				print \csq{Invalid index format.}
+			\item If the number is out of range (\textbf{IndexError}), 
+				print \csq{Index out of range.}
+		\end{itemize}
+
+		\textbf{Examples:}
+		\begin{itemize}
+			\item \csq{Enter an index:} 1 $\rightarrow$ \csq{banana}
+			\item \csq{Enter an index:} 5 $\rightarrow$ \csq{Index out of range.}
+			\item \csq{Enter an index:} \csq{two} $\rightarrow$ \csq{Invalid index format.}
+		\end{itemize}
+
+%Errors: IndexError, ValueError
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 3
+%%%%%%%%%%%%%%%%%%%%%
+%new_question
+	\item 
+		You're building a shopping assistant that helps users look up the prices of products 
+		from a catalog.\\
+
+		Write a \textbf{program} that asks the user to enter the name of a product and then prints 
+		its price from a predefined dictionary, shown below:
+		\begin{itemize}
+			\item \texttt{\{\csq{apple}: 1.5, \csq{banana}: 0.9, \csq{cherry}: 2.2\}}
+		\end{itemize}
+		The program should handle two types of issues:
+		\begin{itemize}
+			\item If the product is not found in the dictionary \textbf{KeyError}, 
+				print \csq{Product not found.}
+			\item If the input is empty, print \csq{Please enter a product name.}\\
+				Hint: this will not produce an error. Handle it with logic.	
+		\end{itemize}
+
+		\textbf{Examples:}
+		\begin{itemize}
+			\item \csq{Enter product name:} \csq{apple} $\rightarrow$ 1.5
+			\item \csq{Enter product name:} \csq{mango} $\rightarrow$ \csq{Product not found.}
+			\item \csq{Enter product name:} \csq{} $\rightarrow$ \csq{Please enter a product name.}
+		\end{itemize}
+
+%Errors: ValueError, KeyError
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 4
+%%%%%%%%%%%%%%%%%%%%%
+%new_question
+	\item 
+		Write a \textbf{program} that asks the user to enter the name of a text file and then prints 
+		the contents of that file to the screen. The program should handle the following error:
+		\begin{itemize}
+			\item If the file does not exist (\textbf{FileExistsError}), print \csq{File not found.}
+		\end{itemize}
+
+		\textbf{Examples:}\\
+			\begin{center}
+			\includegraphics[scale=.65]{imgs/FileDirectoryExample.PNG}
+			\end{center}
+		\begin{itemize}
+			\item \csq{Enter file name:} \csq{LunchData.txt} $\rightarrow$ 
+				(prints the content of LunchData.txt)
+			\item \csq{Enter file name:} \csq{DinnerData.txt} $\rightarrow$ \csq{File not found.}
+		\end{itemize}
+
+%Errors: FileNotFoundError
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 5
+%%%%%%%%%%%%%%%%%%%%%
+%new_question
+	\item 
+		You are helping a teacher update students' scores after a quiz.  
+		The teacher wants to add points for extra credit and needs your program to 
+		do the math safely.\\
+
+		A dictionary stores the number of points each student has earned, shown below: 
+		\begin{itemize}
+			\item \texttt{\{\csq{Alice}: 90, \csq{Bob}: 75, \csq{Charlie}: 60\}}
+		\end{itemize}
+		Write a \textbf{program} that asks the user to enter a student's name and a number 
+		to add to their score. The program should print the new number of points.
+
+		The program should handle the following errors:
+		\begin{itemize}
+			\item If the name is not found in the dictionary (\textbf{KeyError}), 
+				print \csq{Student not found.}
+			\item If the number entered is not valid (e.g., not a number) (\textbf{ValueError}), 
+				print \csq{Invalid number.}
+		\end{itemize}
+
+		\textbf{Examples:}
+		\begin{itemize}
+			\item \csq{Enter student name:} \csq{Bob} \\
+			      \csq{Enter number to subtract:} 10 $\rightarrow$ 65
+			\item \csq{Enter student name:} \csq{David} $\rightarrow$ \csq{Student not found.}
+			\item \csq{Enter student name:} \csq{Alice} \\
+			      \csq{Enter number to subtract:} \csq{ten} $\rightarrow$ \csq{Invalid number.}
+		\end{itemize}
+
+%Errors: KeyError, ValueError
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 6
+%%%%%%%%%%%%%%%%%%%%%
+%new_question
+	\item 
+		You're building a simple scheduling tool that lets users select a day of the week by 
+		entering a number between 0 and 6.  
+		Each number corresponds to a day, starting with 0 for Monday and ending with 6 for Sunday.\\
+
+		A list contains the days of the week, shown below: 
+		\begin{itemize}
+			\item \texttt{[\csq{Monday}, \csq{Tuesday}, \csq{Wednesday}, \csq{Thursday}, 
+				\csq{Friday}, \csq{Saturday}, \csq{Sunday}]}.  
+		\end{itemize}
+		Write a \textbf{program} that asks the user to enter a number (0--6) and prints the 
+		corresponding day.
+
+		The program should handle the following errors:
+		\begin{itemize}
+			\item If the input is not a valid number (\textbf{ValueError}), 
+				print \csq{Invalid input.}
+			\item If the number is outside the valid range (\textbf{IndexError}), 
+				print \csq{Index out of range.}
+		\end{itemize}
+
+		\textbf{Examples:}
+		\begin{itemize}
+			\item \csq{Enter a number:} 0 $\rightarrow$ \csq{Monday}
+			\item \csq{Enter a number:} 6 $\rightarrow$ \csq{Sunday}
+			\item \csq{Enter a number:} 7 $\rightarrow$ \csq{Index out of range.}
+			\item \csq{Enter a number:} \csq{two} $\rightarrow$ \csq{Invalid input.}
+		\end{itemize}
+
+%Errors: IndexError, ValueError
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 7
+%%%%%%%%%%%%%%%%%%%%%
+%new_question
+	\item 
+		You're building a tool that compares two numbers by calculating both the difference 
+		and the ratio. The program should ask the user to enter two numbers and then:
+		\begin{itemize}
+			\item Print the difference (first minus second)
+			\item Print the result of dividing the first number by the second
+		\end{itemize}
+
+		Write a \textbf{program} that uses \texttt{int()} to convert user input and 
+		performs both calculations.  
+
+		The program should handle the following errors:
+		\begin{itemize}
+			\item If either input is not a valid number (\textbf{ValueError}), 
+				print \csq{Invalid input.}
+			\item If the second number is 0 (\textbf{ZeroDivisionError}), 
+				print \csq{Cannot divide by zero.}
+			\item If the result is too large (\textbf{OverflowError}), 
+				print \csq{Result too large.}
+		\end{itemize}
+
+		\textbf{Examples:}
+		\begin{itemize}
+			\item \csq{Enter first number:} 100 \\
+			      \csq{Enter second number:} 20 $\rightarrow$ \csq{Difference: 80, Ratio: 5.0}
+			\item \csq{Enter first number:} 42 \\
+			      \csq{Enter second number:} 0 $\rightarrow$ \csq{Cannot divide by zero.}
+			\item \csq{Enter first number:} \csq{ten} $\rightarrow$ \csq{Invalid input.}
+			\item \csq{Enter first number:} 999999999999999999999999 \\
+			      \csq{Enter second number:} 1 $\rightarrow$ \csq{Result too large.}
+		\end{itemize}
+
+%Errors: ValueError, ZeroDivisionError, OverflowError
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 8
+%%%%%%%%%%%%%%%%%%%%%
+%new_question
+	\item 
+		You are building a color picker feature for a drawing app.  
+		The user selects a color by entering its position in a preset list of colors.\\
+
+		A list contains some colors, shown below:
+		\begin{itemize}
+			\item \texttt{[\csq{red}, \csq{green}, \csq{blue}, \csq{yellow}, \csq{purple}]}
+		\end{itemize}
+		Write a \textbf{program} that asks the user to enter an \textbf{index} and then prints the 
+		corresponding color. If the user enters an invalid index or input, they should be asked to 
+		try again until a valid index is given.
+
+		The program should handle the following errors:
+		\begin{itemize}
+			\item If the input is not a number (\textbf{ValueError}), 
+				print \csq{Invalid input. Try again.}
+			\item If the index is out of range (\textbf{IndexError}), 
+				print \csq{Index out of range. Try again.}
+		\end{itemize}
+
+		\textbf{Examples:}
+		\begin{itemize}
+			\item \csq{Enter an index:} 2 $\rightarrow$ \csq{blue}
+			\item \csq{Enter an index:} 10 $\rightarrow$ \csq{Index out of range. Try again.}
+			\item \csq{Enter an index:} \csq{green} $\rightarrow$ \csq{Invalid input. Try again.}
+			\item (after retry) \csq{Enter an index:} 1 $\rightarrow$ \csq{green}
+		\end{itemize}
+
+%Errors: IndexError, ValueError
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 9
+%%%%%%%%%%%%%%%%%%%%%
+%new_question
+	\item 
+		You've been asked to help build part of a travel booking system.  
+		One of the features lets users type in a country code (like \csq{US}) and shows them the 
+		full country name to confirm their destination.
+
+		A dictionary stores some country codes, shown below: 
+			$$\texttt{\{\csq{US}:\csq{United States}, \csq{FR}:\csq{France}, 
+				\csq{JP}:\csq{Japan}, \csq{BR}:\csq{Brazil}\}}$$
+		Write a \textbf{program} that asks the user to enter a country code (like \csq{US}) 
+		and then prints the full country name. If the user enters an invalid code, they should 
+		be asked to try again until a valid code is entered.
+
+		The program should handle the following errors:
+		\begin{itemize}
+			%\item If the input is empty, print \csq{Invalid input. Try again.}
+			\item If the code is not found in the dictionary (\textbf{KeyError}), 
+				print \csq{Code not found. Try again.}
+		\end{itemize}
+
+		\textbf{Examples:}
+		\begin{itemize}
+			\item \csq{Enter a country code:} \csq{JP} $\rightarrow$ \csq{Japan}
+			\item \csq{Enter a country code:} \csq{XYZ} $\rightarrow$ 
+				\csq{Code not found. Try again.}
+			%\item \csq{Enter a country code:} \csq{} $\rightarrow$ \csq{Invalid input. Try again.}
+			\item (after retry) \csq{Enter a country code:} \csq{BR} $\rightarrow$ \csq{Brazil}
+		\end{itemize}
+
+%Errors: KeyError, ValueError
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 10
+%%%%%%%%%%%%%%%%%%%%%
+%new_question
+	\item 
+		A game show awards a cash prize to be split evenly among a group of winners.  
+		Write a \textbf{program} that asks the user to:
+		\begin{enumerate}
+			\item Enter the prize amount in dollars
+			\item Enter the number of winners
+		\end{enumerate}
+
+		The program should calculate how much each person gets by dividing the prize by the 
+		number of winners.
+		The program should keep asking until the input is valid, and handle the following errors:
+		\begin{itemize}
+			\item If the input is not a number (e.g. typing \csq{five}) (\textbf{ValueError}), 
+				print \csq{Invalid input. Try again.}
+			\item If there are no winners (\textbf{ZeroDivisionError}), 
+				print \csq{Must have at least one winner. Try again.}
+			%\item If the prize is so large that it causes an error, print \csq{Prize amount 
+			%too large. Try a smaller amount.}
+		\end{itemize}
+
+		\textbf{Examples:}
+		\begin{itemize}
+			\item \csq{Enter prize amount:} 10000 \\
+			      \csq{Enter number of winners:} 4 $\rightarrow$ 2500.0
+			\item \csq{Enter number of winners:} 0 $\rightarrow$ 
+				\csq{Cannot divide by zero. Try again.}
+			\item \csq{Enter prize amount:} \csq{grand} $\rightarrow$ 
+				\csq{Invalid input. Try again.}
+			%\item \csq{Enter prize amount:} 100000000000000000000000 \\ \csq{Enter number of 
+			%winners:} 1 $\rightarrow$ \csq{Prize amount too large. Try a smaller amount.}
+		\end{itemize}
+
+%Errors: ValueError, ZeroDivisionError, OverflowError
+
+
+
+
+
+%end_of_questions
+
+
+%\item Write a program that will convert some amount of pennies into the fewest amount of dollars and coins possible.  For example, 75 pennies is 3 quarters.  86 pennies is 3 quarters, 1 dime, and 1 penny.  130 pennies is 1 dollar, 1 quarter and 1 nickel.  Let the user pick the number of pennies.  You may assume the largest input is 499 pennies.\\
+%Hint: the way to do this is to always substitute for the largest denomination if available.  For example, if there is at least 100 pennies substitute for a dollar before quarters.
+
+\end{enumerate}
+\end{document}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 2
+%%%%%%%%%%%%%%%%%%%%%
+%new_question
+	\item 
+		You're working on a scientific calculator app that includes exponential growth functions.  
+		One feature allows users to enter a number and calculate the value of $e^x$ using Python’s built-in math library.\\
+
+		Write a \textbf{program} that asks the user to enter a number and then calculates the exponential value of $e^x$ using the \csq{math.exp()} function.  
+		The program should handle two types of errors:
+		\begin{itemize}
+			\item If the input is not a valid number, print \csq{Please enter a valid number.}
+			\item If the number is too large and causes an overflow, print \csq{Number too large!}
+		\end{itemize}
+
+		\textbf{Examples:}
+		\begin{itemize}
+			\item \csq{Enter a number:} 3 $\rightarrow$ 20.085536923187668
+			\item \csq{Enter a number:} 1000 $\rightarrow$ \csq{Number too large!}
+			\item \csq{Enter a number:} \csq{apple} $\rightarrow$ \csq{Please enter a valid number.}
+		\end{itemize}
+
+%Errors: ValueError, OverflowError
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 7
+%%%%%%%%%%%%%%%%%%%%%
+%new_question
+	\item 
+		You're building a countdown feature for a game that uses a recursive function to display numbers from a starting point down to 0.  
+		To make the feature safe and user-friendly, your program should validate the input and handle potential errors.\\
+
+		Write a \textbf{program} that defines a recursive function to count down from a number to 0.  
+		The program should ask the user to enter a starting number and then call the function.
+
+		The program should handle the following error:
+		\begin{itemize}
+			\item If the input is not a valid number, print \csq{Invalid number.}
+			\item If the number is too large and causes too much recursion, print \csq{Recursion limit reached.}
+		\end{itemize}
+
+		\textbf{Examples:}
+		\begin{itemize}
+			\item \csq{Enter a number:} 5 $\rightarrow$ 5 4 3 2 1 0
+			\item \csq{Enter a number:} \csq{hello} $\rightarrow$ \csq{Invalid number.}
+			\item \csq{Enter a number:} 10000 $\rightarrow$ \csq{Recursion limit reached.}
+		\end{itemize}
+
+%Errors: ValueError, RecursionError
+

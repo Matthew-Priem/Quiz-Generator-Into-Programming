@@ -1,0 +1,326 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts} % For math fonts.
+\usepackage{amssymb} % For other math symbols not covered by amsmath.
+\usepackage[pdftex]{graphicx} % For pictures, use \includegraphics[scale=decimal]{pic.png}; must be a .png file type.
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[colorlinks = true, urlcolor = blue]{hyperref}
+\usepackage{enumitem}
+\usepackage{graphbox} 
+\usepackage{subfig}
+\usepackage{multicol}
+\usepackage{nopageno}
+
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, calc}
+\usetikzlibrary{shapes.geometric,angles,quotes}
+\usepackage{tikz-3dplot}
+
+
+%page formatting
+\usepackage{fullpage}
+\setlength{\parindent}{0pt}
+
+
+\newcommand{\tab}{\hspace*{0.25in}}
+\newcommand{\csq}[1]{\reflectbox{''}#1''}  %This produces CS style quotes.
+\newcommand{\csqt}[1]{\text{\reflectbox{''}#1''}}  %This produces CS style quotes as text.
+
+
+\usepackage{listings}
+\lstset
+{ %Formatting for code in appendix
+    language=Python,
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=2,
+    breaklines=true,
+    breakatwhitespace=false,
+}
+
+
+\begin{document}
+
+
+
+%split_point
+
+%\end{document}
+Matt Priem \hfill Lists quiz\\
+section 1\\
+\begin{enumerate}
+	%new
+	\item 
+		Given a positive integer $n$, the following rules will always create a sequence that 
+		ends with 1, called Hailstone Sequence:
+		\begin{enumerate}
+			\item If $n$ is even, divide by 2
+			\item If $n$ is odd, multiply by 3 and add 1 (i.e. $3n+1$)
+			\item Continue until $n$ is 1
+		\end{enumerate}
+		Write a \textbf{function} that returns a list with the hailstone sequence starting at $n$. 
+		The argument to the function will be $n$ (the integer to start the sequence from).
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  hailstone\_seq(25) $\rightarrow$ [25, 76, 38, 19, 58 ... 8, 4, 2, 1], 
+			\item  hailstone\_seq(40) $\rightarrow$ [40, 20, 10, 5, 16, 8, 4, 2, 1]
+		\end{itemize}
+
+
+
+%https://edabit.com/challenge/jwzgYjymYK7Gmro93
+	%new
+	\item
+		Write a \textbf{function} that takes two arguments, a list and a item.  The function should return the indices of all occurrences of the $item$ in the list.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  get\_indices( [1, 5, 5, 2, 7], 7) $\rightarrow$ [4]
+			\item  get\_indices( [1, 5, 5, 2, 7], 5) $\rightarrow$ [1, 2]
+			\item  get\_indices( [1, 5, 5, 2, 7], 8) $\rightarrow$ []
+			\item  get\_indices( [\csq{a}, \csq{a}, \csq{b}, \csq{a}, \csq{b}, \csq{a}], \csq{a}) 
+				$\rightarrow$ [0, 1, 3, 5]
+		\end{itemize}
+
+
+	%new
+	\item 
+		Write a \textbf{function} that loops through a word and returns a list with every 
+		other letter of the word starting with the \textbf{second} letter.
+		The function will take a single argument $word$ (a string representing the word to process).
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  skip\_letter(\csq{counterattack}) $\rightarrow$ 
+				[\csq{o},\csq{n},\csq{e},\csq{a},\csq{t},\csq{c}]
+			\item  skip\_letter(\csq{banana sunday}) $\rightarrow$
+				[\csq{a},\csq{a},\csq{a},\csq{s},\csq{n},\csq{a}]
+		\end{itemize}
+
+
+\end{enumerate}
+\pagebreak
+Bart Simpson \hfill Lists quiz\\
+section 1\\
+\begin{enumerate}
+%https://edabit.com/challenge/hYiCzkLBBQSeF8fKF
+	%new
+	\item 
+		In BlackJack, cards are counted with -1, 0, 1 values:
+		\begin{itemize}
+			\item 2, 3, 4, 5, 6 are counted as +1
+			\item 7, 8, 9 are counted as 0
+			\item 10, j, q, k, a are counted as -1
+		\end{itemize}
+		Write a \textbf{function} that takes a list called $cards$, counts the number, 
+		and returns it from the list of cards provided.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  count([5, 9, 10, 3, \csq{j}, \csq{a}, 4, 8, 5]) $\rightarrow$ 1, 
+			\item  count([\csq{a}, \csq{a}, \csq{k}, \csq{q}, \csq{q}, \csq{j}]) $\rightarrow$ -6, 
+			\item  count([\csq{a}, 5, 5, 2, 6, 2, 3, 8, 9, 7]) $\rightarrow$ 5
+		\end{itemize}
+
+
+
+	%new
+	\item
+		Write a \textbf{function} that takes 3 numbers as arguments, $num\_1$ (first number), 
+		$num\_2$ (second number), and $num\_3$ (third number). 
+		Return a list of the integers in descending order. 
+		You may \textbf{not} use the built-in functions \textit{max}(), \textit{min}(), 
+		\textit{sort}(), or \textit{sorted}().
+		
+	\textbf{Examples:}
+	\begin{itemize}
+		\item  descending\_order(2, 3, 1) $\rightarrow$ [3, 2, 1], 
+		\item  descending\_order(10, 1, 25) $\rightarrow$ [25, 10, 1], 
+		\item  descending\_order(2, 45, 4) $\rightarrow$ [45, 4, 2] 
+	\end{itemize}
+
+
+
+	%new
+	\item 
+		Write a \textbf{function} that loops through a word and returns a list with every 
+		other letter of the word starting with the \textbf{first} letter.
+		The function will take a single argument $word$ (a string representing the word to process).
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  skip\_letter(\csq{counterattack}) $\rightarrow$ 
+				[\csq{c},\csq{u},\csq{t},\csq{r},\csq{t},\csq{a},\csq{c}]
+			\item  skip\_letter(\csq{banana sunday}) $\rightarrow$
+				[\csq{b},\csq{n},\csq{n},\csq{s},\csq{n},\csq{a}]
+		\end{itemize}
+
+\end{enumerate}
+\pagebreak
+Lone Star \hfill Lists quiz\\
+section 2\\
+\begin{enumerate}
+	%new
+	\item 
+		Write a \textbf{function} that finds the largest odd number in a list $numbers$. Return -1 if not found. 
+		You may \textbf{not} use the built-in functions \textit{max}(), \textit{min}(), \textit{sort}(), or \textit{sorted}().
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  largest\_odd([3, 7, 2, 1, 7, 9, 10, 13]) $\rightarrow$ 13,
+			\item  largest\_odd([2, 4, 6, 8]) $\rightarrow$ -1,
+			\item  largest\_odd([0, 19, 18973623]) $\rightarrow$ 18973623
+		\end{itemize}
+
+	%new
+	\item
+		Write a \textbf{function} that takes 3 numbers as arguments, $num\_1$ (first number), 
+		$num\_2$ (second number), and $num\_3$ (third number). 
+		Return a list of the integers in descending order. 
+		You may \textbf{not} use the built-in functions \textit{max}(), \textit{min}(), 
+		\textit{sort}(), or \textit{sorted}().
+		
+	\textbf{Examples:}
+	\begin{itemize}
+		\item  descending\_order(2, 3, 1) $\rightarrow$ [3, 2, 1], 
+		\item  descending\_order(10, 1, 25) $\rightarrow$ [25, 10, 1], 
+		\item  descending\_order(2, 45, 4) $\rightarrow$ [45, 4, 2] 
+	\end{itemize}
+
+
+
+	%new
+	\item 
+		Write a \textbf{function} that loops through and returns a list with every odd number between two
+		integers (inclusive). The arguments to the function will be $smaller\_num$ and 
+		$larger\_num$.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  output\_odd(37, 1050) $\rightarrow$ [37, 39, 41, \dots, 1049], 
+			\item  output\_odd(1, 2000) $\rightarrow$ [1, 3, 5, \dots, 1999], 
+			\item  output\_odd(50, 199) $\rightarrow$ [51, 53, 55, \dots, 197, 199]
+		\end{itemize}
+
+
+\end{enumerate}
+\pagebreak
+Dot Matrix \hfill Lists quiz\\
+section 3\\
+\begin{enumerate}
+	%new
+	\item
+		Write a \textbf{function} that takes 3 numbers as arguments, $num\_1$ (first number), 
+		$num\_2$ (second number), and $num\_3$ (third number). 
+		Return a list of the integers in ascending order. 
+		You may \textbf{not} use the built-in functions \textit{max}(), \textit{min}(), 
+		\textit{sort}(), or \textit{sorted}().
+		
+	\textbf{Examples:}
+	\begin{itemize}
+		\item  ascending\_order(2, 3, 1) $\rightarrow$ [1, 2, 3], 
+		\item  ascending\_order(10, 1, 25) $\rightarrow$ [1, 10, 25], 
+		\item  ascending\_order(2, 45, 4) $\rightarrow$ [2, 4, 45] 
+	\end{itemize}
+
+
+	%new
+	\item
+		Write a \textbf{function} that takes 3 numbers as arguments, $num\_1$ (first number), 
+		$num\_2$ (second number), and $num\_3$ (third number). 
+		Return a list of the integers in descending order. 
+		You may \textbf{not} use the built-in functions \textit{max}(), \textit{min}(), 
+		\textit{sort}(), or \textit{sorted}().
+		
+	\textbf{Examples:}
+	\begin{itemize}
+		\item  descending\_order(2, 3, 1) $\rightarrow$ [3, 2, 1], 
+		\item  descending\_order(10, 1, 25) $\rightarrow$ [25, 10, 1], 
+		\item  descending\_order(2, 45, 4) $\rightarrow$ [45, 4, 2] 
+	\end{itemize}
+
+
+
+	%new
+	\item
+		To train for an upcoming marathon, Samuel goes on one long-distance run each Saturday. 
+		He wants to track how often the number of miles he runs fall short of the previous Saturday. 
+		This is called a lag day. Write a \textbf{function} that takes in a list of miles 
+		run every Saturday and returns Samuel's total number of lag days.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  lag\_days([5, 3, 2, 1]) $\rightarrow$ 3, 
+				(3 lag days, day2 since (3$<$5), day3 since (2$<$3), and day4 since (1$<$2))
+			\item  lag\_days([10, 11, 12, 9, 10]) $\rightarrow$ 1, 
+			\item  lag\_days([6, 5, 4, 3, 2, 9]) $\rightarrow$ 4, 
+			\item  lag\_days([9, 9]) $\rightarrow$ 0
+		\end{itemize}
+
+\end{enumerate}
+\pagebreak
+Alfred Yankovic \hfill Lists quiz\\
+section 2\\
+\begin{enumerate}
+%https://edabit.com/challenge/egMp3GWyN8TPptbZA
+	%new
+	\item
+		YouTube currently displays a like and a dislike button, allowing you to express your opinions about particular content. 
+		It's set up in such a way that you cannot like and dislike a video at the same time.
+		There are two other interesting rules to be noted about the interface:
+		\begin{enumerate}
+			\item Pressing a button, which is already active, will undo your press.
+			\item If you press the like button after pressing the dislike button, the like button overwrites the previous \csq{dislike} state. The same is true for the other way round.
+		\end{enumerate}
+		Write a \textbf{function} that takes in a list of button inputs $events$ and returns the final state.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  like\_or\_dislike([\csq{dislike}]) $\rightarrow$ \csq{dislike},
+			\item  like\_or\_dislike([\csq{like}, \csq{like}]) $\rightarrow$ \csq{nothing},
+			\item  like\_or\_dislike([\csq{dislike}, \csq{like}]) $\rightarrow$ \csq{like},
+			\item  like\_or\_dislike([\csq{like}, \csq{dislike}, \csq{dislike}]) $\rightarrow$ \csq{nothing},
+		\end{itemize}
+
+
+
+
+%https://edabit.com/challenge/2yHQwkecEHZBfHcmN
+	%new
+	\item
+		To train for an upcoming marathon, Johnny goes on one long-distance run each Saturday. 
+		He wants to track how often the number of miles he runs exceeds the previous Saturday. 
+		This is called a progress day. Write a \textbf{function} that takes in a list of miles 
+		run every Saturday and returns Johnny's total number of progress days.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  progress\_days([3, 4, 1, 2]) $\rightarrow$ 2, 
+				(Two progress days, day 2 since $(4>3)$ and day 4 since $(2>1)$)
+			\item  progress\_days([10, 11, 12, 9, 10]) $\rightarrow$ 3, 
+			\item  progress\_days([6, 5, 4, 3, 2, 9]) $\rightarrow$ 1, 
+			\item  progress\_days([9, 9]) $\rightarrow$ 0
+		\end{itemize}
+
+	%new
+	\item 
+		Write a \textbf{function} that loops through and returns a list with every odd number between two
+		integers (inclusive). The arguments to the function will be $smaller\_num$ and 
+		$larger\_num$.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  output\_odd(37, 1050) $\rightarrow$ [37, 39, 41, \dots, 1049], 
+			\item  output\_odd(1, 2000) $\rightarrow$ [1, 3, 5, \dots, 1999], 
+			\item  output\_odd(50, 199) $\rightarrow$ [51, 53, 55, \dots, 197, 199]
+		\end{itemize}
+
+
+\end{enumerate}
+\pagebreak
+\end{document}

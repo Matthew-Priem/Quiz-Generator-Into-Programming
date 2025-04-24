@@ -1,0 +1,628 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts} % For math fonts.
+\usepackage{amssymb} % For other math symbols not covered by amsmath.
+\usepackage[pdftex]{graphicx} % For pictures, use \includegraphics[scale=decimal]{pic.png}; must be a .png file type.
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[colorlinks = true, urlcolor = blue]{hyperref}
+\usepackage{enumitem}
+\usepackage{graphbox} 
+\usepackage{subfig}
+\usepackage{multicol}
+
+\newcommand{\tab}{\hspace*{0.25in}}
+\newcommand{\csq}[1]{\reflectbox{''}#1''}  %This produces CS style quotes.
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, calc}
+\usetikzlibrary{shapes.geometric,angles,quotes}
+
+
+\usepackage{fullpage}
+\usepackage{listings}
+\lstset
+{ %Formatting for code in appendix
+    language=Python,
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=2,
+    breaklines=true,
+    breakatwhitespace=false,
+}
+
+
+\begin{document}
+
+
+\begin{flushright}
+loops\end{flushright}
+
+\vspace*{-1.5em}
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+
+\vspace*{2em}
+
+\begin{enumerate}
+
+%start_of_questions
+
+%new_question
+	%new
+	\item 
+		Write a \textbf{function} that loops through a word and returns a list with every 
+		other letter of the word starting with the \textbf{first} letter.
+		The function will take a single argument $word$ (a string representing the word to process).
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  skip\_letter(\csq{counterattack}) $\rightarrow$ 
+				[\csq{c},\csq{u},\csq{t},\csq{r},\csq{t},\csq{a},\csq{c}]
+			\item  skip\_letter(\csq{banana sunday}) $\rightarrow$
+				[\csq{b},\csq{n},\csq{n},\csq{s},\csq{n},\csq{a}]
+		\end{itemize}
+
+%new_question
+	%new
+	\item 
+		Write a \textbf{function} that loops through a word and returns a list with every 
+		other letter of the word starting with the \textbf{second} letter.
+		The function will take a single argument $word$ (a string representing the word to process).
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  skip\_letter(\csq{counterattack}) $\rightarrow$ 
+				[\csq{o},\csq{n},\csq{e},\csq{a},\csq{t},\csq{c}]
+			\item  skip\_letter(\csq{banana sunday}) $\rightarrow$
+				[\csq{a},\csq{a},\csq{a},\csq{s},\csq{n},\csq{a}]
+		\end{itemize}
+
+
+%new_question
+	%new
+	\item 
+		Write a \textbf{function} that loops through and returns a list with every even number between two
+		integers (inclusive). The arguments to the function will be $smaller\_num$ and 
+		$larger\_num$.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  output\_even(37, 1050) $\rightarrow$ [38, 40, 42, \dots 1048, 1050], 
+			\item  output\_even(1, 2000) $\rightarrow$ [2, 4, 6, \dots 1998, 2000], 
+			\item  output\_even(50, 199) $\rightarrow$ [50, 52, 54, \dots 196, 198]
+		\end{itemize}
+
+%new_question
+	%new
+	\item 
+		Write a \textbf{function} that loops through and returns a list with every odd number between two
+		integers (inclusive). The arguments to the function will be $smaller\_num$ and 
+		$larger\_num$.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  output\_odd(37, 1050) $\rightarrow$ [37, 39, 41, \dots, 1049], 
+			\item  output\_odd(1, 2000) $\rightarrow$ [1, 3, 5, \dots, 1999], 
+			\item  output\_odd(50, 199) $\rightarrow$ [51, 53, 55, \dots, 197, 199]
+		\end{itemize}
+
+
+%new_question
+	%new
+	\item 
+		Given a positive integer $n$, the following rules will always create a sequence that 
+		ends with 1, called Hailstone Sequence:
+		\begin{enumerate}
+			\item If $n$ is even, divide by 2
+			\item If $n$ is odd, multiply by 3 and add 1 (i.e. $3n+1$)
+			\item Continue until $n$ is 1
+		\end{enumerate}
+		Write a \textbf{function} that returns a list with the hailstone sequence starting at $n$. 
+		The argument to the function will be $n$ (the integer to start the sequence from).
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  hailstone\_seq(25) $\rightarrow$ [25, 76, 38, 19, 58 ... 8, 4, 2, 1], 
+			\item  hailstone\_seq(40) $\rightarrow$ [40, 20, 10, 5, 16, 8, 4, 2, 1]
+		\end{itemize}
+
+
+
+%new_question
+	%new
+	\item 
+		%https://edabit.com/challenge/6Pf5GGG6HnzbB95gf
+		Write a \textbf{function} that returns a list with the factors of a given integer. The argument of the function
+		will be $num$ (integer to find factors for).
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  find\_factors(12) $\rightarrow$ [1, 2, 3, 4, 6, 12], 
+			\item  find\_factors(17) $\rightarrow$ [1, 17],
+			\item  find\_factors(36) $\rightarrow$ [1, 2, 3, 4, 6, 9, 12, 18, 36]
+		\end{itemize}
+
+
+
+%new_question
+	%new
+	\item
+		Write a \textbf{function} that takes 3 numbers as arguments, $num\_1$ (first number), 
+		$num\_2$ (second number), and $num\_3$ (third number). 
+		Return a list of the integers in ascending order. 
+		You may \textbf{not} use the built-in functions \textit{max}(), \textit{min}(), 
+		\textit{sort}(), or \textit{sorted}().
+		
+	\textbf{Examples:}
+	\begin{itemize}
+		\item  ascending\_order(2, 3, 1) $\rightarrow$ [1, 2, 3], 
+		\item  ascending\_order(10, 1, 25) $\rightarrow$ [1, 10, 25], 
+		\item  ascending\_order(2, 45, 4) $\rightarrow$ [2, 4, 45] 
+	\end{itemize}
+
+
+%new_question
+	%new
+	\item
+		Write a \textbf{function} that takes 3 numbers as arguments, $num\_1$ (first number), 
+		$num\_2$ (second number), and $num\_3$ (third number). 
+		Return a list of the integers in descending order. 
+		You may \textbf{not} use the built-in functions \textit{max}(), \textit{min}(), 
+		\textit{sort}(), or \textit{sorted}().
+		
+	\textbf{Examples:}
+	\begin{itemize}
+		\item  descending\_order(2, 3, 1) $\rightarrow$ [3, 2, 1], 
+		\item  descending\_order(10, 1, 25) $\rightarrow$ [25, 10, 1], 
+		\item  descending\_order(2, 45, 4) $\rightarrow$ [45, 4, 2] 
+	\end{itemize}
+
+
+
+%new_question
+%https://edabit.com/challenge/hYiCzkLBBQSeF8fKF
+	%new
+	\item 
+		In BlackJack, cards are counted with -1, 0, 1 values:
+		\begin{itemize}
+			\item 2, 3, 4, 5, 6 are counted as +1
+			\item 7, 8, 9 are counted as 0
+			\item 10, j, q, k, a are counted as -1
+		\end{itemize}
+		Write a \textbf{function} that takes a list called $cards$, counts the number, 
+		and returns it from the list of cards provided.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  count([5, 9, 10, 3, \csq{j}, \csq{a}, 4, 8, 5]) $\rightarrow$ 1, 
+			\item  count([\csq{a}, \csq{a}, \csq{k}, \csq{q}, \csq{q}, \csq{j}]) $\rightarrow$ -6, 
+			\item  count([\csq{a}, 5, 5, 2, 6, 2, 3, 8, 9, 7]) $\rightarrow$ 5
+		\end{itemize}
+
+
+
+%new_question
+%https://edabit.com/challenge/rMr8yRxS8TeF9pDyn
+	
+	%new
+	\item 
+		There's a great war between the even and odd numbers. Many numbers already lost 
+		their lives in this war and it's your task to end this. You have to determine 
+		which group sums larger: the evens or the odds. The larger group wins.
+
+		Write a \textbf{function} that takes a list of integers named \textit{numbers}, 
+		sums the even numbers and odd numbers separately, then returns which of the two
+		sums is larger.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  war\_of\_numbers([2, 8, 7, 5]) $\rightarrow$ 
+				\csq{odds}, (since 2 + 8 = 10, 7 + 5 = 12, odds is larger) 
+			\item  war\_of\_numbers([12, 90, 75, 1, 1]) $\rightarrow$ \csq{evens}, 
+				(12 + 90 = 102, 75 + 1 + 1 = 77, evens is larger) 
+			\item  war\_of\_numbers([2, 10, 22, 243]) $\rightarrow$ \csq{odds}
+		\end{itemize}
+
+
+%new_question
+%https://edabit.com/challenge/izfXy5SGfeekmKExH
+	%new
+	\item 
+		Write a function named \textit{add\_lists} that takes two lists $lyst1$ and $lyst2$ and adds the 
+		first element in $lyst1$ with the first element in $lyst2$, the second element $lyst1$
+		with the second element $lyst2$, etc. Return a new list containing the corresponding 
+		sums of the list1 and list2.  You may assume both lists have the same length.
+		%Return True if all element combinations add up to the same number. Otherwise, return False.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  add\_lists([1, 3, 3, 1], [4, 3, 6, 1]) $\rightarrow$ [5, 6, 8, 2] 
+				( since 1+4=5; 3+3=6; 3+6=9; 1+1=2)
+			\item  add\_lists([1, 8, 5, 0, -7], [0, -7, 4, 2, -6]) $\rightarrow$ [1, 1, 9, 2, -13]
+			\item  add\_lists([1, 2], [-1, 1]) $\rightarrow$ [0, 3]
+		\end{itemize}
+
+
+%new_question
+%https://edabit.com/challenge/ksZrMdraPqHjvbaE6
+	%new
+	\item 
+		Write a \textbf{function} that finds the largest even number in a list $numbers$. Return -1 if not found. 
+		You may \textbf{not} use the built-in functions \textit{max}(), \textit{min}(), \textit{sort}(), or \textit{sorted}().
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  largest\_even([3, 7, 2, 1, 7, 9, 10, 13]) $\rightarrow$ 10,
+			\item  largest\_even([1, 3, 5, 7]) $\rightarrow$ -1,
+			\item  largest\_even([0, 19, 18973623]) $\rightarrow$ 0
+		\end{itemize}
+
+%new_question
+	%new
+	\item 
+		Write a \textbf{function} that finds the largest odd number in a list $numbers$. Return -1 if not found. 
+		You may \textbf{not} use the built-in functions \textit{max}(), \textit{min}(), \textit{sort}(), or \textit{sorted}().
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  largest\_odd([3, 7, 2, 1, 7, 9, 10, 13]) $\rightarrow$ 13,
+			\item  largest\_odd([2, 4, 6, 8]) $\rightarrow$ -1,
+			\item  largest\_odd([0, 19, 18973623]) $\rightarrow$ 18973623
+		\end{itemize}
+
+%new_question
+%https://edabit.com/challenge/2yHQwkecEHZBfHcmN
+	%new
+	\item
+		To train for an upcoming marathon, Johnny goes on one long-distance run each Saturday. 
+		He wants to track how often the number of miles he runs exceeds the previous Saturday. 
+		This is called a progress day. Write a \textbf{function} that takes in a list of miles 
+		run every Saturday and returns Johnny's total number of progress days.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  progress\_days([3, 4, 1, 2]) $\rightarrow$ 2, 
+				(Two progress days, day 2 since $(4>3)$ and day 4 since $(2>1)$)
+			\item  progress\_days([10, 11, 12, 9, 10]) $\rightarrow$ 3, 
+			\item  progress\_days([6, 5, 4, 3, 2, 9]) $\rightarrow$ 1, 
+			\item  progress\_days([9, 9]) $\rightarrow$ 0
+		\end{itemize}
+
+%new_question
+	%new
+	\item
+		To train for an upcoming marathon, Samuel goes on one long-distance run each Saturday. 
+		He wants to track how often the number of miles he runs fall short of the previous Saturday. 
+		This is called a lag day. Write a \textbf{function} that takes in a list of miles 
+		run every Saturday and returns Samuel's total number of lag days.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  lag\_days([5, 3, 2, 1]) $\rightarrow$ 3, 
+				(3 lag days, day2 since (3$<$5), day3 since (2$<$3), and day4 since (1$<$2))
+			\item  lag\_days([10, 11, 12, 9, 10]) $\rightarrow$ 1, 
+			\item  lag\_days([6, 5, 4, 3, 2, 9]) $\rightarrow$ 4, 
+			\item  lag\_days([9, 9]) $\rightarrow$ 0
+		\end{itemize}
+
+%new_question
+%https://edabit.com/challenge/egMp3GWyN8TPptbZA
+	%new
+	\item
+		YouTube currently displays a like and a dislike button, allowing you to express your opinions about particular content. 
+		It's set up in such a way that you cannot like and dislike a video at the same time.
+		There are two other interesting rules to be noted about the interface:
+		\begin{enumerate}
+			\item Pressing a button, which is already active, will undo your press.
+			\item If you press the like button after pressing the dislike button, the like button overwrites the previous \csq{dislike} state. The same is true for the other way round.
+		\end{enumerate}
+		Write a \textbf{function} that takes in a list of button inputs $events$ and returns the final state.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  like\_or\_dislike([\csq{dislike}]) $\rightarrow$ \csq{dislike},
+			\item  like\_or\_dislike([\csq{like}, \csq{like}]) $\rightarrow$ \csq{nothing},
+			\item  like\_or\_dislike([\csq{dislike}, \csq{like}]) $\rightarrow$ \csq{like},
+			\item  like\_or\_dislike([\csq{like}, \csq{dislike}, \csq{dislike}]) $\rightarrow$ \csq{nothing},
+		\end{itemize}
+
+
+
+
+%new_question
+%https://edabit.com/challenge/jwzgYjymYK7Gmro93
+	%new
+	\item
+		Write a \textbf{function} that takes two arguments, a list and a item.  The function should return the indices of all occurrences of the $item$ in the list.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  get\_indices( [1, 5, 5, 2, 7], 7) $\rightarrow$ [4]
+			\item  get\_indices( [1, 5, 5, 2, 7], 5) $\rightarrow$ [1, 2]
+			\item  get\_indices( [1, 5, 5, 2, 7], 8) $\rightarrow$ []
+			\item  get\_indices( [\csq{a}, \csq{a}, \csq{b}, \csq{a}, \csq{b}, \csq{a}], \csq{a}) 
+				$\rightarrow$ [0, 1, 3, 5]
+		\end{itemize}
+
+
+%new_question
+%https://edabit.com/challenge/BuwHwPvt92yw574zB
+	%new
+	\item
+		Write a \textbf{function} that takes two numbers as arguments $num$ and $length$ and returns a 
+		list of multiples of $num$ until the list length reaches $length$.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  list\_of\_multiples(7, 5) $\rightarrow$ [7, 14, 21, 28, 35]
+			\item  list\_of\_multiples(12, 10) $\rightarrow$ [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
+			\item  list\_of\_multiples(17, 6) $\rightarrow$ [17, 34, 51, 68, 85, 102]
+		\end{itemize}
+
+
+
+%end_of_questions
+
+
+%\item Write a program that will convert some amount of pennies into the fewest amount of dollars and coins possible.  For example, 75 pennies is 3 quarters.  86 pennies is 3 quarters, 1 dime, and 1 penny.  130 pennies is 1 dollar, 1 quarter and 1 nickel.  Let the user pick the number of pennies.  You may assume the largest input is 499 pennies.\\
+%Hint: the way to do this is to always substitute for the largest denomination if available.  For example, if there is at least 100 pennies substitute for a dollar before quarters.
+
+\end{enumerate}
+\end{document}
+
+
+
+%new_question
+%https://edabit.com/challenge/R4D59C9CQbJvqWaKd
+	%new
+	\item
+		A baseball player's batting average is calculated by the following formula:\\
+		\begin{center}
+		BA = (number of hits) / (number of official at-bats)\\
+		\end{center}
+		Batting averages are always expressed rounded to the nearest thousandth with no leading zero. 
+		The top 3 MLB batting averages of all-time are:
+		\begin{enumerate}
+			\item Ty Cobb .366
+			\item Rogers Hornsby .358
+			\item Shoeless Joe Jackson .356
+		\end{enumerate}
+		The given list represents a season of games. Each list item indicates a player's [hits, official at bats] per game. 
+		Write a \textbf{function} that takes in a list of $games$ (2 dimensional list) and returns a string with the player's
+		 seasonal batting average rounded to the nearest thousandth.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  batting\_avg([[0, 0], [1, 3], [2, 2], [0, 4], [1, 5]]) $\rightarrow$ \csq{.286},
+			\item  batting\_avg([[2, 5], [2, 3], [0, 3], [1, 5], [2, 4]]) $\rightarrow$ \csq{.350},
+			\item  batting\_avg([[2, 3], [1, 5], [2, 4], [1, 5], [0, 5]]) $\rightarrow$ \csq{.273},
+		\end{itemize}
+
+%new_question
+%https://edabit.com/challenge/J2apiSnJE4RaGTj6x
+	%new
+	\item
+		Given what is supposed to be typed $correct\_phrase$ and what is actually typed $actual\_phrase$, write a \textbf{function} that returns the broken key(s).
+		 The function looks like:\\
+		\begin{center}
+		find\_broken\_keys(correct phrase, what you actually typed)\\
+		\end{center}
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  find\_broken\_keys(\csq{happy birthday}, \csq{hawwy birthday}) $\rightarrow$ [\csq{p}],
+			\item  find\_broken\_keys(\csq{starry night}, \csq{starrq light}) $\rightarrow$ [\csq{y}, \csq{n}]
+			\item  find\_broken\_keys(\csq{beethoven}, \csq{affthoif5}) $\rightarrow$ [\csq{b}, \csq{e}, \csq{v}, \csq{n}]
+		\end{itemize}
+
+
+
+%new_question
+%https://edabit.com/challenge/MFteyMABeuGaga3a7
+	%new
+	\item
+		When coloring a striped pattern, you may start by coloring each square sequentially, meaning you spend time needing to switch coloring pencils.
+		Write a \textbf{function} where given a list of colors $cols$, return how long it takes to color the whole pattern. Note the following times:
+		\begin{itemize}
+			\item  It takes 1 second to switch between pencils.
+			\item  It takes 2 seconds to color a square.
+		\end{itemize}
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  color\_pattern\_times([\csq{Red}, \csq{Blue}, \csq{Red}, \csq{Blue}, \csq{Red}]) $\rightarrow$ 14, Since there are 5 colors with 2 seconds each and you need to switch colors pencils 4 times. 
+			so (2 x 5) + (4 x 1) = 14
+			\item  color\_pattern\_times([\csq{Blue}]) $\rightarrow$ 2,
+			\item  color\_pattern\_times([\csq{Red}, \csq{Yellow}, \csq{Green}, \csq{Blue}]) $\rightarrow$ 11,
+			\item  color\_pattern\_times([\csq{Blue}, \csq{Blue}, \csq{Blue}, \csq{Red}, \csq{Red}, \csq{Red}]) $\rightarrow$ 13
+		\end{itemize}
+
+
+%new_question
+	%new
+	\item
+		When painting a row of fence posts, you must change brushes whenever the color changes.
+		Write a \textbf{function} where given a list of colors $cols$, returns how long it takes to paint the entire fence. Consider the following times:
+		\begin{itemize}
+			\item  It takes 3 seconds to paint one fence post.
+			\item  It takes 2 seconds to switch brushes when changing colors.
+		\end{itemize}
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  paint\_fence\_time([\csq{Red}, \csq{Blue}, \csq{Red}, \csq{Blue}, \csq{Red}]) $\rightarrow$ 19, Since there are 5 fence posts with 3 seconds each, and you switch brushes 4 times.
+			So, (3 × 5) + (2 × 4) = 19
+			\item  paint\_fence\_time([\csq{Blue}]) $\rightarrow$ 3
+			\item  paint\_fence\_time([\csq{Red}, \csq{Yellow}, \csq{Green}, \csq{Blue}]) $\rightarrow$ 17
+			\item  paint\_fence\_time([\csq{Blue}, \csq{Blue}, \csq{Blue}, \csq{Red}, \csq{Red}, \csq{Red}]) $\rightarrow$ 17
+		\end{itemize}
+
+
+%new_question
+%https://edabit.com/challenge/q7BdzRw4j7zFfFb4R
+	%new
+	\item
+		Write a \textbf{function} that takes two lists $letters$ and $numbers$ and combines them by alternatingly taking elements from each list in turn.
+		\begin{itemize}
+			\item  The lists may be of different lengths, with at least one character / digit.
+			\item  The first list will contain string characters (lowercase, a-z).
+			\item  The second list will contain integers (all positive).
+		\end{itemize}
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  merge\_lists([\csq{a}, \csq{b}, \csq{c}, \csq{d}, \csq{e}], [1, 2, 3, 4, 5]) $\rightarrow$ [\csq{a}, 1, \csq{b}, 2, \csq{c}, 3, \csq{d}, 4, \csq{e}, 5]
+			\item  merge\_lists([\csq{a}, \csq{b}, \csq{c}, \csq{d}, \csq{e}, \csq{f}], [1, 2, 3]) $\rightarrow$ [\csq{a}, 1, \csq{b}, 2, \csq{c}, 3, \csq{d}, \csq{e}, \csq{f}]
+			\item  merge\_lists([\csq{f}, \csq{d}, \csq{w}, \csq{t}], [5, 3, 7, 8]) $\rightarrow$ [\csq{f}, 5, \csq{d}, 3, \csq{w}, 7, \csq{t}, 8]
+		\end{itemize}
+
+
+%new_question
+	%new
+	\item
+		Write a \textbf{function} that takes two lists, $words$ and $symbols$, and merges them by alternating elements from each list in turn.
+		\begin{itemize}
+			\item  The lists may be of different lengths, but at least one element is guaranteed.
+			\item  The first list $words$ will contain strings (lowercase words).
+			\item  The second list (symbols) will contain single-character symbols (e.g., !, @, \#, \$).
+		\end{itemize}
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  merge\_words\_symbols([\csq{apple}, \csq{banana}, \csq{cherry}], [\csq{!}, \csq{@}, \csq{\#}]) $\rightarrow$ [\csq{apple}, \csq{!}, \csq{banana}, \csq{@}, \csq{cherry}, \csq{\#}]
+			\item  merge\_words\_symbols([\csq{hello}, \csq{world}], [\csq{\$}, \csq{\%}, \csq{\&}, \csq{*}]) $\rightarrow$ [\csq{hello}, \csq{\$}, \csq{world}, \csq{\%}, \csq{\&}, \csq{*}]
+			\item  merge\_words\_symbols([\csq{cat}, \csq{dog}, \csq{elephant}],[\csq{\^}, \csq{\&}]) $\rightarrow$ [\csq{cat}, \csq{\^}, \csq{dog}, \csq{\&}, \csq{elephant}]
+		\end{itemize}
+
+
+%new_question
+%https://edabit.com/challenge/5uMJmbN2uihcyEu75
+	%new
+	\item
+		Write a \textbf{function} that takes a list of $hours$ and returns the total weekly salary.
+		\begin{itemize}
+			\item  The input list hours is listed sequentially, ordered from Monday to Sunday.
+			\item  A worker earns \$10 an hour for the first 8 hours.
+			\item  For every overtime hour, he earns \$15.
+			\item  On weekends, the employer pays double the usual rate, regardless how many hours were worked previously that week. 
+			For instance, 10 hours worked on a weekday would pay 80+30 = \$110, but on a weekend it would pay 160+60 = \$220.
+		\end{itemize}
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  weekly\_pay([8, 8, 8, 8, 8, 0, 0]) $\rightarrow$ 400
+			\item  weekly\_pay([10, 10, 10, 0, 8, 0, 0]) $\rightarrow$ 410
+			\item  weekly\_pay([0, 0, 0, 0, 0, 12, 0]) $\rightarrow$ 280
+		\end{itemize}
+
+
+%new_question
+%https://edabit.com/challenge/5uMJmbN2uihcyEu75
+	%new
+	\item
+		Write a \textbf{function} that retrieves every number that is strictly larger than every number that follows it.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  larger\_than\_right([3, 13, 11, 2, 1, 9, 5]) $\rightarrow$ [13, 11, 9, 5]
+			\item  larger\_than\_right([5, 5, 5, 5, 5, 5]) $\rightarrow$ [5], Since the last number is larger than all the numbers on the right
+			\item  larger\_than\_right([5, 9, 8, 7]) $\rightarrow$ [9, 8, 7]
+		\end{itemize}
+
+
+
+
+%end_of_questions
+
+
+%\item Write a program that will convert some amount of pennies into the fewest amount of dollars and coins possible.  For example, 75 pennies is 3 quarters.  86 pennies is 3 quarters, 1 dime, and 1 penny.  130 pennies is 1 dollar, 1 quarter and 1 nickel.  Let the user pick the number of pennies.  You may assume the largest input is 499 pennies.\\
+%Hint: the way to do this is to always substitute for the largest denomination if available.  For example, if there is at least 100 pennies substitute for a dollar before quarters.
+
+\end{enumerate}
+\end{document}
+
+
+
+
+
+
+%new_question
+	%new
+	\item 
+		Write a \textbf{function} that returns the first $n$ numbers in the Fibonacci sequence. The argument of the function will be $n$ (the number of Fibonacci numbers to
+		 generate). The Fibonacci sequence is defined as follows:
+		\begin{itemize}
+			\item  For n = 0, F(0) = 0
+			\item  For n = 1, F(1) = 1
+			\item  For $n \geq 2$, F(n) = F(n-1) + F(n-2)
+		\end{itemize}
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  fibonacci(5) $\rightarrow$ [0, 1, 1, 2, 3], 
+			\item  fibonacci(7) $\rightarrow$ [0, 1, 1, 2, 3, 5, 8], 
+			\item  fibonacci(10) $\rightarrow$ [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+		\end{itemize}
+
+
+%new_question
+%https://edabit.com/challenge/Yfm3h3nT3apARd4gC
+	%new
+	\item 
+		Write a \textbf{function} that takes a list called $dice\_rolls$ consisting of dice rolls from 1-6. Return the sum of your rolls with the following conditions:
+		\begin{enumerate}
+			\item If a 1 is rolled, that is bad luck. The next roll counts as 0.
+			\item If a 6 is rolled, that is good luck. The next roll is multiplied by 2.
+			\item The list length will always be 3 or higher.
+		\end{enumerate}
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  rolls([1, 2, 3]) $\rightarrow$ 4, 
+			\item  rolls([2, 6, 2, 5]) $\rightarrow$ 17, 
+			\item  rolls([6, 1, 1]) $\rightarrow$ 8
+		\end{itemize}
+
+
+%new_question
+%https://edabit.com/challenge/hYiCzkLBBQSeF8fKF
+	%new
+	\item 
+		A factor chain is a list where each previous element is a factor of the next consecutive element. The following is a factor chain:
+		\begin{verbatim}
+			[3, 6, 12, 36]
+			# 3 is a factor of 6
+			# 6 is a factor of 12
+			# 12 is a factor of 36
+		\end{verbatim}
+		Write a \textbf{function} that takes a list called $factor\_chain$ and returns whether or not a list is a factor chain.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  is\_factor\_chain([1, 2, 4, 8, 16, 32]) $\rightarrow$ True, 
+			\item  is\_factor\_chain([1, 1, 1, 1, 1, 1]) $\rightarrow$ True, 
+			\item  is\_factor\_chain([2, 4, 6, 7, 12]) $\rightarrow$ False, 
+			\item  is\_factor\_chain([10, 1]) $\rightarrow$ False, 
+		\end{itemize}
+
+
+%new_question
+	%new
+	\item
+		In a debate competition, each judge casts a vote for \csq{agree} or \csq{disagree}.
+		\begin{enumerate}
+			\item If a judge changes their vote, the new vote overwrites the previous one.
+			\item If a judge votes the same way twice, they withdraw their vote.
+			\item If all votes are withdrawn, the result is \csq{undecided}.
+		\end{enumerate}
+		Write a \textbf{function} that takes in a list of votes $votes$ and returns the final decision.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  judge\_vote([\csq{agree}]) $\rightarrow$ \csq{agree},
+			\item  judge\_vote([\csq{disagree}, \csq{agree}]) $\rightarrow$ \csq{agree},
+			\item  judge\_vote([\csq{agree}, \csq{agree}]) $\rightarrow$ \csq{undecided},
+			\item  judge\_vote([\csq{agree}, \csq{disagree}, \csq{disagree}, \csq{agree}]) $\rightarrow$ \csq{undecided}
+		\end{itemize}

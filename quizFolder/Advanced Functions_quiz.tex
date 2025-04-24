@@ -1,0 +1,380 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts} % For math fonts.
+\usepackage{amssymb} % For other math symbols not covered by amsmath.
+\usepackage[pdftex]{graphicx} % For pictures, use \includegraphics[scale=decimal]{pic.png}; must be a .png file type.
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[colorlinks = true, urlcolor = blue]{hyperref}
+\usepackage{enumitem}
+\usepackage{graphbox} 
+\usepackage{subfig}
+\usepackage{multicol}
+\usepackage{nopageno}
+
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, calc}
+\usetikzlibrary{shapes.geometric,angles,quotes}
+\usepackage{tikz-3dplot}
+
+
+%page formatting
+\usepackage{fullpage}
+\setlength{\parindent}{0pt}
+
+
+\newcommand{\tab}{\hspace*{0.25in}}
+\newcommand{\csq}[1]{\reflectbox{''}#1''}  %This produces CS style quotes.
+\newcommand{\csqt}[1]{\text{\reflectbox{''}#1''}}  %This produces CS style quotes as text.
+
+
+\usepackage{listings}
+\lstset
+{ %Formatting for code in appendix
+    language=Python,
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=2,
+    breaklines=true,
+    breakatwhitespace=false,
+}
+
+
+\begin{document}
+
+
+
+%split_point
+
+%\end{document}
+Matt Priem \hfill Advanced Functions quiz\\
+section 1\\
+\begin{enumerate}
+	\item 
+		Luke Skywalker has friends and family, but he is getting older and having trouble 
+		remembering them all.  Write a \textbf{function} that will return the relation 
+		defined in the table below. The arguments to the function will be $name$ 
+		(name of the person related to Luke), if no argument is provided then the 
+		\textbf{default} should be nothing. That is, the empty word \csq{ }. \\ 
+		\begin{center}
+		\begin{tabular}{|l|l|} \hline
+			Person 		& Relation \\ \hline \hline
+			Darth Vader	& Father \\ \hline
+			Leia		& Sister \\ \hline
+			Han			& Brother in law\\ \hline
+			R2D2		& Droid \\ \hline
+		\end{tabular}\\ \hspace*{1in} *If he types any other name, return \csq{unknown}.
+		\end{center}
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  find\_relation(\csq{Darth Vader}) $\rightarrow$ \csq{Father}, 
+			\item  find\_relation(\csq{R2D2}) $\rightarrow$ \csq{Droid}, 
+			\item  find\_relation(\csq{Jabba the Hutt}) $\rightarrow$ \csq{Unknown}
+			\item  find\_relation( ) $\rightarrow$ \csq{Unknown}
+		\end{itemize}
+
+
+	\item
+		Write a \textbf{function} that takes 3 numbers as arguments, $num\_1$ (first number), 
+		$num\_2$ (second number), and $num\_3$ (third number).  $num\_1$ should be mandatory.
+		If no arguments are provided for $num\_2$ or $num\_3$ then use 5 for $num\_2$ and 
+		25 for $num\_3$.
+		Return a list of the integers in ascending order. \\
+		You may \textbf{not} use the built-in functions \textit{max}(), \textit{min}(), 
+		\textit{sort}(), or \textit{sorted}().
+		
+	\textbf{Examples:}
+	\begin{itemize}
+		\item  ascending\_order(2, 3, 1) $\rightarrow$ [1, 2, 3], 
+		\item  ascending\_order(10, 1) $\rightarrow$ [1, 10, 25], 
+		\item  ascending\_order(50) $\rightarrow$ [5, 25, 50] 
+	\end{itemize}
+
+
+	\item 
+		Given a positive integer $n$, the following rules will always create a sequence that 
+		ends with 1, called Hailstone Sequence:
+		\begin{enumerate}
+			\item If $n$ is even, divide by 2
+			\item If $n$ is odd, multiply by 3 and add 1 (i.e. $3n+1$)
+			\item Continue until $n$ is 1
+		\end{enumerate}
+		Write a \textbf{function} that prints the hailstone sequence starting at $n$. 
+		The argument to the function will be $n$ (the integer to start the sequence from), 
+		if no argument is provided then the \textbf{default} should be 40.
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  hailstone\_seq(25) $\rightarrow$ 25, 76, 38, 19, 58 ... 8, 4, 2, 1, 
+			\item  hailstone\_seq(40) $\rightarrow$ 40, 20, 10, 5, 16, 8, 4, 2, 1
+			\item  hailstone\_seq( ) $\rightarrow$ 40, 20, 10, 5, 16, 8, 4, 2, 1
+		\end{itemize}
+
+
+\end{enumerate}
+\pagebreak
+Bart Simpson \hfill Advanced Functions quiz\\
+section 1\\
+\begin{enumerate}
+	\item 
+		Write a \textbf{function} to create a game of Rock, Paper, Scissors. The function will 
+		return the winner of the game played by two players.
+		The arguments to the function will be $player1$ (the first player's choice) and $player2$ 
+		(the second player's choice), if no argument is provided then the \textbf{default} for 
+		either player should be Rock.\\
+		Print the winner according to the following rules. 
+		\begin{itemize}
+			\item Rock beats Scissors
+			\item Scissors beats Paper
+			\item Paper beats Rock
+		\end{itemize}		
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  find\_winner(\csq{Rock}, \csq{Paper}) $\rightarrow$ \csq{Player 2 wins!}, 
+			\item  find\_winner(\csq{Scissors}, \csq{Paper}) $\rightarrow$ \csq{Player 1 wins!}, 
+			\item  find\_winner(\csq{Rock}, \csq{Rock}) $\rightarrow$ \csq{It's a tie!}
+			\item  find\_winner(\csq{Rock}) $\rightarrow$ \csq{It's a tie!}
+			\item  find\_winner( ) $\rightarrow$ \csq{It's a tie!}
+			\item  find\_winner(\csq{Scissors}) $\rightarrow$ \csq{Player 2 wins!}
+		\end{itemize}
+
+
+	\item
+		Write a \textbf{function} that takes 3 numbers as arguments, $num\_1$ (first number), 
+		$num\_2$ (second number), and $num\_3$ (third number).  $num\_1$ should be mandatory.
+		If no arguments are provided for $num\_2$ or $num\_3$ then use 5 for $num\_2$ and 
+		25 for $num\_3$.
+		Return a list of the integers in ascending order. \\
+		You may \textbf{not} use the built-in functions \textit{max}(), \textit{min}(), 
+		\textit{sort}(), or \textit{sorted}().
+		
+	\textbf{Examples:}
+	\begin{itemize}
+		\item  ascending\_order(2, 3, 1) $\rightarrow$ [1, 2, 3], 
+		\item  ascending\_order(10, 1) $\rightarrow$ [1, 10, 25], 
+		\item  ascending\_order(50) $\rightarrow$ [5, 25, 50] 
+	\end{itemize}
+
+
+	\item 
+		Luke Skywalker has friends and family, but he is getting older and having trouble 
+		remembering them all.  Write a \textbf{function} that will return the relation 
+		defined in the table below. The arguments to the function will be $name$ 
+		(name of the person related to Luke), if no argument is provided then the 
+		\textbf{default} should be nothing. That is, the empty word \csq{ }. \\ 
+		\begin{center}
+		\begin{tabular}{|l|l|} \hline
+			Person 		& Relation \\ \hline \hline
+			Darth Vader	& Father \\ \hline
+			Leia		& Sister \\ \hline
+			Han			& Brother in law\\ \hline
+			R2D2		& Droid \\ \hline
+		\end{tabular}\\ \hspace*{1in} *If he types any other name, return \csq{unknown}.
+		\end{center}
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  find\_relation(\csq{Darth Vader}) $\rightarrow$ \csq{Father}, 
+			\item  find\_relation(\csq{R2D2}) $\rightarrow$ \csq{Droid}, 
+			\item  find\_relation(\csq{Jabba the Hutt}) $\rightarrow$ \csq{Unknown}
+			\item  find\_relation( ) $\rightarrow$ \csq{Unknown}
+		\end{itemize}
+
+
+\end{enumerate}
+\pagebreak
+Lone Star \hfill Advanced Functions quiz\\
+section 2\\
+\begin{enumerate}
+	\item 
+		In an Ancient Kingdom, the currency consists of bronze coins, silver coins, and gold coins.  
+		There are 20 bronze coins in one silver coin and 15 silver coins in one gold coin.  Write a 	
+		\textbf{function} that will return a converted amount of bronze coins into the fewest amount 
+		of coins possible.  Only return a string with the non-zero values, meaning don't return 
+		something similar to ``0 silver coins''. The argument for the function will be 
+		$bronze\_coins$ (how many bronze coins to convert)., if no argument is provided then the 
+		\textbf{default} should be 900 bronze coins 
+
+		\textbf{Examples:}
+		\begin{itemize}
+			\item  convert\_bronze(32) $\rightarrow$ \csq{1 silver 12 bronze}, 
+			\item  convert\_bronze(544) $\rightarrow$ \csq{1 gold 4 silver 4 bronze}, 
+			\item  convert\_bronze(903) $\rightarrow$ \csq{3 gold 3 bronze}\\
+				Note: Do \textbf{not} output 3 gold 0 silver 3 bronze.
+			\item  convert\_bronze() $\rightarrow$ \csq{3 gold}\\
+				Note: Do \textbf{not} output 3 gold 0 silver 0 bronze.
+		\end{itemize}
+
+
+	\item
+		Write a \textbf{function} that takes 3 numbers as arguments, $num\_1$ (first number), 
+		$num\_2$ (second number), and $num\_3$ (third number).  $num\_1$ should be mandatory.
+		If no arguments are provided for $num\_2$ or $num\_3$ then use 5 for $num\_2$ and 
+		25 for $num\_3$.
+		Return a list of the integers in ascending order. \\
+		You may \textbf{not} use the built-in functions \textit{max}(), \textit{min}(), 
+		\textit{sort}(), or \textit{sorted}().
+		
+	\textbf{Examples:}
+	\begin{itemize}
+		\item  ascending\_order(2, 3, 1) $\rightarrow$ [1, 2, 3], 
+		\item  ascending\_order(10, 1) $\rightarrow$ [1, 10, 25], 
+		\item  ascending\_order(50) $\rightarrow$ [5, 25, 50] 
+	\end{itemize}
+
+
+	\item 
+		Write a \textbf{function} to create a game of Rock, Paper, Scissors. The function will 
+		return the winner of the game played by two players.
+		The arguments to the function will be $player1$ (the first player's choice) and $player2$ 
+		(the second player's choice), if no argument is provided then the \textbf{default} for 
+		either player should be Rock.\\
+		Print the winner according to the following rules. 
+		\begin{itemize}
+			\item Rock beats Scissors
+			\item Scissors beats Paper
+			\item Paper beats Rock
+		\end{itemize}		
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  find\_winner(\csq{Rock}, \csq{Paper}) $\rightarrow$ \csq{Player 2 wins!}, 
+			\item  find\_winner(\csq{Scissors}, \csq{Paper}) $\rightarrow$ \csq{Player 1 wins!}, 
+			\item  find\_winner(\csq{Rock}, \csq{Rock}) $\rightarrow$ \csq{It's a tie!}
+			\item  find\_winner(\csq{Rock}) $\rightarrow$ \csq{It's a tie!}
+			\item  find\_winner( ) $\rightarrow$ \csq{It's a tie!}
+			\item  find\_winner(\csq{Scissors}) $\rightarrow$ \csq{Player 2 wins!}
+		\end{itemize}
+
+
+\end{enumerate}
+\pagebreak
+Dot Matrix \hfill Advanced Functions quiz\\
+section 3\\
+\begin{enumerate}
+	\item 
+		Write a \textbf{function} that returns the number of copies of the same number. 
+		The arguments for the function will be $num\_1$ (first number), $num\_2$ (second number), 
+		and $num\_3$ (third number), if no argument is provided then the \textbf{default} for all 
+		3 values should be 0.\\
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  count\_duplicates(2, 3, 2) $\rightarrow$ \csq{There are 2 of the same number}, 
+			\item  count\_duplicates(4, 4, 4) $\rightarrow$ \csq{There are 3 of the same number}, 
+			\item  count\_duplicates(1, 2, 3) $\rightarrow$ \csq{Each number is unique} 
+			\item  count\_duplicates(1) $\rightarrow$ \csq{There are 2 of the same number} 
+			\item  count\_duplicates(0) $\rightarrow$ \csq{There are 3 of the same number} 
+		\end{itemize}
+
+
+	\item 
+		Luke Skywalker has friends and family, but he is getting older and having trouble 
+		remembering them all.  Write a \textbf{function} that will return the relation 
+		defined in the table below. The arguments to the function will be $name$ 
+		(name of the person related to Luke), if no argument is provided then the 
+		\textbf{default} should be nothing. That is, the empty word \csq{ }. \\ 
+		\begin{center}
+		\begin{tabular}{|l|l|} \hline
+			Person 		& Relation \\ \hline \hline
+			Darth Vader	& Father \\ \hline
+			Leia		& Sister \\ \hline
+			Han			& Brother in law\\ \hline
+			R2D2		& Droid \\ \hline
+		\end{tabular}\\ \hspace*{1in} *If he types any other name, return \csq{unknown}.
+		\end{center}
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  find\_relation(\csq{Darth Vader}) $\rightarrow$ \csq{Father}, 
+			\item  find\_relation(\csq{R2D2}) $\rightarrow$ \csq{Droid}, 
+			\item  find\_relation(\csq{Jabba the Hutt}) $\rightarrow$ \csq{Unknown}
+			\item  find\_relation( ) $\rightarrow$ \csq{Unknown}
+		\end{itemize}
+
+
+	\item 
+		(Game: heads or tails)  Write a \textbf{function} that lets the user guess whether the flip of a coin 
+		results in heads or tails. The function randomly generates an integer 0 or 1, which 
+		represents head or tail. The function returns if the guess is correct or incorrect. The argument for the function will be $guess$ 
+		(the guess of the user, 0 for heads and 1 for tails), if no argument is provided then the \textbf{default} should be 0 for heads.\\
+		Hint: Use the following lines of code to create the function.
+		\begin{verbatim}
+		    from random import randint
+		    value = randint(0,1) #picks a random integer. Either 0 or 1.
+		\end{verbatim}
+		\textbf{Examples:}
+		\begin{itemize}
+			\item  toss\_coin( ) $\rightarrow$ \csq{Correct!} (if the random value is 0) or 
+				\csq{Incorrect!} (if the random value is 1), 
+			\item  toss\_coin(0) $\rightarrow$ \csq{Correct!} (if the random value is 0) or 
+				\csq{Incorrect!} (if the random value is 1), 
+			\item  toss\_coin(1) $\rightarrow$ \csq{Correct!} (if the random value is 1) or 
+				\csq{Incorrect!} (if the random value is 0) 
+		\end{itemize}
+
+\end{enumerate}
+\pagebreak
+Alfred Yankovic \hfill Advanced Functions quiz\\
+section 2\\
+\begin{enumerate}
+	\item 
+		Luke Skywalker has friends and family, but he is getting older and having trouble 
+		remembering them all.  Write a \textbf{function} that will return the relation 
+		defined in the table below. The arguments to the function will be $name$ 
+		(name of the person related to Luke), if no argument is provided then the 
+		\textbf{default} should be nothing. That is, the empty word \csq{ }. \\ 
+		\begin{center}
+		\begin{tabular}{|l|l|} \hline
+			Person 		& Relation \\ \hline \hline
+			Darth Vader	& Father \\ \hline
+			Leia		& Sister \\ \hline
+			Han			& Brother in law\\ \hline
+			R2D2		& Droid \\ \hline
+		\end{tabular}\\ \hspace*{1in} *If he types any other name, return \csq{unknown}.
+		\end{center}
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  find\_relation(\csq{Darth Vader}) $\rightarrow$ \csq{Father}, 
+			\item  find\_relation(\csq{R2D2}) $\rightarrow$ \csq{Droid}, 
+			\item  find\_relation(\csq{Jabba the Hutt}) $\rightarrow$ \csq{Unknown}
+			\item  find\_relation( ) $\rightarrow$ \csq{Unknown}
+		\end{itemize}
+
+
+	\item 
+		Write a \textbf{function} that returns the factors of a given integer. 
+		The argument of the function will be $num$ (integer to find factors for), 
+		if no argument is provided then the \textbf{default} should be 36.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  find\_factors(12) $\rightarrow$ 1, 2, 3, 4, 6, 12, 
+			\item  find\_factors(17) $\rightarrow$ 1, 17,
+			\item  find\_factors(36) $\rightarrow$ 1, 2, 3, 4, 6, 9, 12, 18, 36
+			\item  find\_factors( ) $\rightarrow$ 1, 2, 3, 4, 6, 9, 12, 18, 36
+		\end{itemize}
+
+
+	\item 
+		Given a positive integer $n$, the following rules will always create a sequence that 
+		ends with 1, called Hailstone Sequence:
+		\begin{enumerate}
+			\item If $n$ is even, divide by 2
+			\item If $n$ is odd, multiply by 3 and add 1 (i.e. $3n+1$)
+			\item Continue until $n$ is 1
+		\end{enumerate}
+		Write a \textbf{function} that prints the hailstone sequence starting at $n$. 
+		The argument to the function will be $n$ (the integer to start the sequence from), 
+		if no argument is provided then the \textbf{default} should be 40.
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  hailstone\_seq(25) $\rightarrow$ 25, 76, 38, 19, 58 ... 8, 4, 2, 1, 
+			\item  hailstone\_seq(40) $\rightarrow$ 40, 20, 10, 5, 16, 8, 4, 2, 1
+			\item  hailstone\_seq( ) $\rightarrow$ 40, 20, 10, 5, 16, 8, 4, 2, 1
+		\end{itemize}
+
+
+\end{enumerate}
+\pagebreak
+\end{document}

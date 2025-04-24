@@ -1,0 +1,349 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts} % For math fonts.
+\usepackage{amssymb} % For other math symbols not covered by amsmath.
+\usepackage[pdftex]{graphicx} % For pictures, use \includegraphics[scale=decimal]{pic.png}; must be a .png file type.
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[colorlinks = true, urlcolor = blue]{hyperref}
+\usepackage{enumitem}
+\usepackage{graphbox} 
+\usepackage{subfig}
+\usepackage{multicol}
+
+\newcommand{\tab}{\hspace*{0.25in}}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, calc}
+\usetikzlibrary{shapes.geometric,angles,quotes}
+\usepackage{tikz-3dplot}
+
+\newcommand{\csq}[1]{\reflectbox{''}#1''}  %This produces CS style quotes.
+
+
+
+\usepackage{fullpage}
+\usepackage{listings}
+\lstset
+{ %Formatting for code in appendix
+    language=Python,
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=2,
+    breaklines=true,
+    breakatwhitespace=false,
+}
+
+
+\begin{document}
+
+
+\begin{flushright}
+strings\end{flushright}
+
+\vspace*{-1.5em}
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+
+\vspace*{2em}
+
+\begin{enumerate}
+
+%start_of_questions
+
+%new_question
+	\item 
+		The \textbf{normal human body temperature} is 98.6F in Fahrenheit and 37C in Celsuis. 
+		Create a function that determines if the \textit{temp} is considered a fever(anove normal 
+		body temperature) or not.
+		\textit{temp} will be measured in Fahrenheit and Celsuis.\\
+		Notice: The F or C will always be the last character in the string.
+
+	\textbf{Examples:}
+	\begin{itemize}
+		\item is\_fever(\csq{99F}) $\rightarrow$ True, 
+		\item is\_fever(\csq{37C}) $\rightarrow$ False, 
+		\item is\_fever(\csq{98F}) $\rightarrow$ False, 
+	\end{itemize}
+
+%new_question
+	\item 
+		%https://edabit.com/challenge/dBqLSk6qvudNdZrSx
+		The \textbf{boiling point} of water is 212F in Fahrenheit and 100C in Celsuis. 
+		Create a function that determines if the \textit{temp} is considered boiling or not.
+		\textit{temp} will be measured in Fahrenheit and Celsuis.\\
+		Notice: The F or C will always be the last character in the string.
+
+	\textbf{Examples:}
+	\begin{itemize}
+		\item is\_boiling(\csq{212F}) $\rightarrow$ True, 
+		\item is\_boiling(\csq{100C}) $\rightarrow$ True, 
+		\item is\_boiling(\csq{0F}) $\rightarrow$ False, 
+	\end{itemize}
+
+
+%new_question
+	\item 
+		%https://edabit.com/challenge/nfWirHJzNRBMAp9Df
+		The \textbf{hamming distance} is the number of characters that differ between two strings.\\
+		To illustrate, \\ \hspace*{1em}
+		\begin{tabular}{lll}
+			str1 = &\csq{abcbba}\\
+			str2 = &\csq{abcbda}
+		\end{tabular}\\
+		The hamming distance is 1 since the only difference is the $5^{th}$ character. \\ 
+		That is, \csq{b} in str1 vs. \csq{d} in str2.
+		
+		Your task: create a function named hamming distance that takes two strings as arguments, 
+		and returns the hamming distance between the two strings.
+
+	\textbf{Examples:}
+		\begin{itemize}
+			\item hamming\_distance(\csq{abcde}, \csq{bcdef}) $\rightarrow$ 5, 
+				since all 5 letters are different.
+			\item hamming\_distance(\csq{abcdef}, \csq{abcdef}) $\rightarrow$ 0, 
+				since all 6 letters are the same.
+			\item hamming\_distance(\csq{strong}, \csq{strung}) $\rightarrow$ 1,
+				since there is only 1 character that is different.
+		\end{itemize}
+
+%new_question
+	\item 
+		%https://edabit.com/challenge/vTGXrd5ntYRk3t6Ma
+		An \textbf{Isogram} is a word that has no duplicate letters. Create a function that 
+		takes a string and returns either True or False depending on whether or not it is 
+		an \csq{isogram}. You may assume words will only have lower case letters.
+		
+	\textbf{Examples:}
+		\begin{itemize}
+			\item is\_isogram(\csq{algorithm}) $\rightarrow$ True
+			\item is\_isogram(\csq{password}) $\rightarrow$ False (multiple of s)
+			\item is\_isogram(\csq{consecutive}) $\rightarrow$ False (multiple of c)
+			\item is\_isogram(\csq{python}) $\rightarrow$ True
+		\end{itemize}
+
+%new_question
+	\item 
+		%https://edabit.com/challenge/Mv5qSgZKTLrLt9zzW
+		A fruit juice company tags their fruit juices by concatenating the first 
+		\textbf{three letters} of the words in a flavor's name, with its capacity. 
+		Create a function that creates product IDs for different fruit juices.
+		Notice that the first input is a string and the second is an integer.
+		
+	\textbf{Examples:}
+		\begin{itemize}
+			\item get\_drink\_ID(\csq{apple}, 500) $\rightarrow$ \csq{app500}
+			\item get\_drink\_ID(\csq{pineapple}, 45) $\rightarrow$ \csq{pin45}
+			\item get\_drink\_ID(\csq{watermelon}, 750) $\rightarrow$ \csq{wat750}
+		\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%new_question
+	%new
+	\item 
+		Reversing the order of words in a sentence can be helpful in text processing. 
+		Create a function called $reverse\_words$ that takes the variable $sentence$ (a string) 
+		and returns the sentence with its words in reversed order. 
+
+		\textbf{Examples:}
+		\begin{itemize}
+			\item reverse\_words(\csq{programming useful tools}) 
+				$\rightarrow$ \csq{tools useful programming}
+			\item reverse\_words(\csq{python is a great language}) 
+				$\rightarrow$ \csq{language great is a python}
+			\item reverse\_words(\csq{hello world}) $\rightarrow$ \csq{world hello}
+		\end{itemize}
+
+
+%new_question
+	%new
+	\item 
+		Zyra the code mage has hidden a mysterious cipher in reversed messages. 
+		You must help Zyra uncover the secrets of the digital realm. 
+		Create a function called $reverse\_string$ that takes the variable $word$ 
+		(a string) and returns the word in reversed order. 
+
+	\textbf{Examples:}
+		\begin{itemize}
+			\item reverse\_string(\csq{programming}) $\rightarrow$ \csq{gnimmargorp}
+			\item reverse\_string(\csq{python}) $\rightarrow$ \csq{nohtyp}
+			\item reverse\_string(\csq{hello}) $\rightarrow$ \csq{olleh}
+		\end{itemize}
+
+
+
+%new_question
+	%new
+	\item 
+		Professor Dumbledore seeks to decipher powerful encoded spells in the Hogwarts Library, 
+		their secrets revealed by the first letter of each word. Create a function called 
+		$first\_letters$ that takes the variable $sentence$ (a string) and returns
+		a string made up of the first letters of each word in the sentence. 
+
+		\textbf{Examples:}
+		\begin{itemize}
+			\item first\_letters(\csq{wingardium leviosa makes objects float}) 
+				$\rightarrow$ \csq{wlmof}
+			\item first\_letters(\csq{expecto patronum repels dementors}) $\rightarrow$ \csq{eprd}
+			\item first\_letters(\csq{the magic is within you}) $\rightarrow$ \csq{tmiy}
+		\end{itemize}
+
+%new_question
+	%new
+	\item 
+		Severus Snape seeks to harness powerful spells in the Hogwarts Library, you must 
+		encode them by using the last letter of each word. Create a function called 
+		$last\_letters$ that takes the variable $sentence$ (a string) and returns
+		a string made up of the last letters of each word in the sentence. 
+
+		\textbf{Examples:}
+		\begin{itemize}
+			\item last\_letters(\csq{wingardium leviosa makes objects float}) 
+				$\rightarrow$ \csq{masst}
+			\item last\_letters(\csq{expecto patronum repels dementors}) $\rightarrow$ \csq{omss}
+			\item last\_letters(\csq{the magic is within you}) $\rightarrow$ \csq{ecsnu}
+		\end{itemize}
+
+
+
+%new_question
+	\item
+		Write a function called \textit{flip\_flop} that takes a string as an argument 
+		and returns  a new word made up of the second half of the word first combined 
+		with the first half of the word second.
+
+		\textbf{Examples:}
+		\begin{itemize}
+			\item \textit{flip\_flop}(\csq{abcd}) $\rightarrow$ \csq{cdab} 
+				(that is, \csq{cd} then \csq{ab} \dots even length)
+			\item \textit{flip\_flop}(\csq{grapes}) $\rightarrow$ \csq{pesgra} 
+				(that is, \csq{pes} then \csq{gra} \dots even length)
+			\item \textit{flip\_flop}(\csq{abcde})$\rightarrow$ \csq{decab}
+				(that is, \csq{de} then \csq{c} then \csq{ab} \dots odd length)
+			\item \textit{flip\_flop}(\csq{cranberries})$\rightarrow$ \csq{rriesecranb}
+				(that is, \csq{rries} then \csq{e} then \csq{cranb} \dots odd length)
+
+		\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+%end_of_questions
+
+
+%\item Write a program that will convert some amount of pennies into the fewest amount of dollars and coins possible.  For example, 75 pennies is 3 quarters.  86 pennies is 3 quarters, 1 dime, and 1 penny.  130 pennies is 1 dollar, 1 quarter and 1 nickel.  Let the user pick the number of pennies.  You may assume the largest input is 499 pennies.\\
+%Hint: the way to do this is to always substitute for the largest denomination if available.  For example, if there is at least 100 pennies substitute for a dollar before quarters.
+
+\end{enumerate}
+\end{document}
+
+
+%new_question
+	\item
+		When driving in a car and approaching a traffic control light, \textit{green} means go, 
+		\textit{yellow} means yield, and \textit{red} means stop.  Assuming there is a variable 
+		named \textit{light\_color}, write a program that prints either the word \textit{go}, 
+		\textit{yield}, or \textit{red} depending of the value of \textit{light\_color}.  
+		Let the user input the value of \textit{light\_color}.
+
+%new_question
+	\item 
+		%https://edabit.com/challenge/Ay9wPrqRJnBmvbFmi
+		Ask the user for two integers, \textit{larger} and \textit{smaller}.  Determine (and output) 
+		how many times larger can be halved while still be greater than smaller.
+		
+		Examples:
+		\begin{itemize}
+			\item if \textit{larger} = 1324 and  \textit{smaller} = 98, the result should be 3 since
+				1324 $\rightarrow$ 662 $\rightarrow$ 331 $\rightarrow$ 165.5
+			\item if \textit{larger} = 624 and  \textit{smaller} = 8, the result should be 6 since\\
+				\tab 624 $\rightarrow$ 312 $\rightarrow$ 156 $\rightarrow$ 78 $\rightarrow$ 39 
+				$\rightarrow$ 19.5 $\rightarrow$ 9.75)
+		\end{itemize}
+
+
+
+%new_question
+	\item 
+		%https://edabit.com/challenge/68KgdtdwabrXydZFM
+		Create a function that takes an integer named \textit{number} 
+		%and a character named \textit{gender} (\csq{m} for male, \csq{f} for female), 
+		and returns the name of an ancestor or\\ descendant based on the table below.
+		Your code should work for any integer.
+		\begin{flushright}
+	    	\begin{tabular}{|c|c|c|} \hline
+				\textbf{Generation} &  \\ \hline
+	    	    -3 	& great grandparent \\
+	    	    -2 	& grandparent \\
+	    	    -1 	& parent\\
+	    	   	0 	& me! \\
+	    	 	1 	& child \\
+	    	 	2 	& grandchild \\
+		   	  	3 	& great grandchild\\ 
+		   	  	\vdots & \\
+		   	  	6 & great great great great grandchild \\ \hline
+		    \end{tabular}
+		\end{flushright}
+
+
+%new_question
+	%new
+	\item 
+		In text analysis, finding the shortest word in a sentence is a common task. 
+		Create a function called $shortest\_word$ that 
+		takes the variable $sentence$ (a string) and returns the shortest word in the sentence. 
+
+	\textbf{Examples:}
+		\begin{itemize}
+			\item shortest\_word(\csq{the shining moon}) $\rightarrow$ \csq{the}
+			\item shortest\_word(\csq{jumped on the trampoline}) $\rightarrow$ \csq{on}
+			\item shortest\_word(\csq{hello planet}) $\rightarrow$ \csq{hello}
+		\end{itemize}
+
+
+%new_question
+	%new
+	\item 
+		A Sith infiltrator has scrambled the ancient Jedi texts, swapping the first half of each 
+		passage with the second. You must help master Yoda restore the order of the archives. 
+		Create a function called $swap\_sentence\_halves$ that takes the variable $sentence$ 
+		(a string) and returns the sentence with the first half swapped with the second half. 
+		If the sentence contains an odd number of words, the extra world should remain in the 
+		second half. 
+
+		\textbf{Examples:}
+		\begin{itemize}
+			\item swap\_sentence\_halves(\csq{hello there general kenobi}) 
+				$\rightarrow$ \csq{general kenobi hello there}
+			\item swap\_sentence\_halves(\csq{the force will be with you always}) 
+				$\rightarrow$ \csq{be with you always the force will}
+			\item swap\_sentence\_halves(\csq{do or not do there is no try}) 
+				$\rightarrow$ \csq{there is no try do or not do}
+		\end{itemize}
+
+%maybe
+%https://edabit.com/challenge/eADRy5SA5QbasA3Qt

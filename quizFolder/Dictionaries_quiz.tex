@@ -1,0 +1,297 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts} % For math fonts.
+\usepackage{amssymb} % For other math symbols not covered by amsmath.
+\usepackage[pdftex]{graphicx} % For pictures, use \includegraphics[scale=decimal]{pic.png}; must be a .png file type.
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[colorlinks = true, urlcolor = blue]{hyperref}
+\usepackage{enumitem}
+\usepackage{graphbox} 
+\usepackage{subfig}
+\usepackage{multicol}
+\usepackage{nopageno}
+
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, calc}
+\usetikzlibrary{shapes.geometric,angles,quotes}
+\usepackage{tikz-3dplot}
+
+
+%page formatting
+\usepackage{fullpage}
+\setlength{\parindent}{0pt}
+
+
+\newcommand{\tab}{\hspace*{0.25in}}
+\newcommand{\csq}[1]{\reflectbox{''}#1''}  %This produces CS style quotes.
+\newcommand{\csqt}[1]{\text{\reflectbox{''}#1''}}  %This produces CS style quotes as text.
+
+
+\usepackage{listings}
+\lstset
+{ %Formatting for code in appendix
+    language=Python,
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=2,
+    breaklines=true,
+    breakatwhitespace=false,
+}
+
+
+\begin{document}
+
+
+
+%split_point
+
+%\end{document}
+Matt Priem \hfill Dictionaries quiz\\
+section 1\\
+\begin{enumerate}
+\item
+	Write a \textbf{function} that takes a dictionary, called $store$, representing items and their prices, and an integer, called $wallet$, 
+	representing the amount of money you have. The function should return a list of items you can afford.
+	If you cannot afford anything, return an empty list.
+
+	\textbf{Examples:}  
+	\begin{itemize}  
+		\item items\_purchase(\{\csq{Water}: 1, \csq{Bread}: 3, \csq{TV}: 1000\}, 300) $\rightarrow$ [\csq{Bread}, \csq{Water}]
+		\item items\_purchase(\{\csq{Apple}: 4, \csq{Pan}: 100, \csq{Spoon}: 2 \}, 100) $\rightarrow$ [\csq{Apple}, \csq{Pan}, \csq{Spoon}]
+		\item items\_purchase(\{\csq{Phone}: 999, \csq{Laptop}: 5000, \csq{PC}: 1200 \}, 1) $\rightarrow$ []
+	\end{itemize}  
+
+	%paper-based
+	\item 	
+		Write a \textbf{function} that takes a dictionary, called $exams$, containing the course grades of a student, 
+		and returns the name of the course with the minimal grade.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  min\_grade(\{\csq{Physics}: 82, \csq{Math}: 65, \csq{History}: 75, 
+				\csq{Biology}: 95, \csq{English} : 87\}) $\rightarrow$ \csq{Math}
+			\item  min\_grade(\{\csq{Chemistry}: 78, \csq{Algebra}: 88, \csq{History}: 72,
+				 \csq{Geography}: 85\}) $\rightarrow$ \csq{History}
+			\item min\_grade(\{\csq{Art}: 90, \csq{Music}: 92, \csq{Drama}: 89\}) 
+				$\rightarrow$ \csq{Drama}
+		\end{itemize}
+
+
+\item
+	Write a \textbf{function} that takes a dictionary, called $sales$, where the keys are product names and the values are the number of units sold. 
+	The function should return the total number of products sold.
+
+	\textbf{Examples:}  
+	\begin{itemize}  
+		\item total\_sales(\{\csq{Laptop}: 5, \csq{Phone}: 10, \csq{Tablet}: 3\}) $\rightarrow$ 18
+		\item total\_sales(\{\csq{Shoes}: 20, \csq{Hats}: 15, \csq{Jackets}: 10\}) $\rightarrow$ 45
+		\item total\_sales(\{\csq{Book}: 1, \csq{Pen}: 2, \csq{Notebook}: 1\}) $\rightarrow$ 4
+	\end{itemize}
+
+\end{enumerate}
+\pagebreak
+Bart Simpson \hfill Dictionaries quiz\\
+section 1\\
+\begin{enumerate}
+\item
+	Write a \textbf{function} that takes a list of \textbf{fruits} and returns the total \textbf{caloric value} of the fruits consumed. You may use the following 
+	dictionary named $calories$:
+	\begin{center}
+		\textit{calories} = \{ \csq{apple} : 95, \csq{banana} : 105, \csq{orange} : 62, 
+			\csq{grape} 3, \csq{pear} : 102\}
+	\end{center}
+	Hint: You can calculate the total calories by summing up the caloric values of all valid 
+	fruits in the list. You may assume the \textit{calories} dictionary is defined in your code.  
+	You don't need to rewrite it.
+	
+	
+	\textbf{Examples:}  
+	\begin{itemize}  
+		\item total\_calories([\csq{apple}, \csq{banana}, \csq{orange}]) 
+			$\rightarrow$ 262 (since 95 + 105 + 62 = 262)
+		\item total\_calories([\csq{grape}, \csq{grape}, \csq{grape}, \csq{grape}, \csq{grape}]) 
+			$\rightarrow$ 15
+		\item total\_calories([\csq{banana}, \csq{pear}, \csq{apple}]) $\rightarrow$ 302
+	\end{itemize}
+
+
+	\item 	
+		Write a \textbf{function} that takes a dictionary, called $people$, containing the names and ages of a group of people, 
+		and returns the name of the youngest person.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  find\_youngest(\{\csq{Emma}: 71, \csq{Jack}: 45, \csq{Olivia}: 82, \csq{Liam}: 39\}) $\rightarrow$ \csq{Liam}
+			\item  find\_youngest(\{\csq{Sophia}: 50, \csq{Mason}: 68, \csq{Ava}: 67, \csq{Noah}: 33\}) $\rightarrow$ \csq{Noah}
+			\item  find\_youngest(\{\csq{Ethan}: 25, \csq{Lucas}: 30, \csq{Mia}: 29\}) $\rightarrow$ \csq{Ethan}
+		\end{itemize}
+
+
+	\item 	
+		Write a \textbf{function} that takes a dictionary called $names$ of tech ids and student names as key-value pairs, and returns a list containing just the student names. 
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  get\_names(\{\csq{01475}: \csq{Steve}, \csq{87469}: \csq{Alice},
+				 \csq{654123}: \csq{Bob} \}) $\rightarrow$ [\csq{Steve}, \csq{Alice}, \csq{Bob}]
+			\item  get\_names(\{ \csq{ID1}: \csq{John}, \csq{ID2}: \csq{Emma}, 
+				\csq{ID3}: \csq{Liam} \}) $\rightarrow$ [\csq{John}, \csq{Emma}, \csq{Liam}]
+			\item  get\_names(\{\}) $\rightarrow$ []
+		\end{itemize}
+
+
+
+
+\end{enumerate}
+\pagebreak
+Lone Star \hfill Dictionaries quiz\\
+section 2\\
+\begin{enumerate}
+	%paper-based
+	\item 	
+		Write a \textbf{function} that takes a dictionary, called $people$, containing the names and ages of a group of people, 
+		and returns the name of the oldest person.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  find\_oldest(\{\csq{Emma}: 71, \csq{Jack}: 45, \csq{Olivia}: 82, \csq{Liam}: 39\}) $\rightarrow$ \csq{Olivia}
+			\item  find\_oldest(\{\csq{Sophia}: 50, \csq{Mason}: 68, \csq{Ava}: 67, \csq{Noah}: 33\}) $\rightarrow$ \csq{Mason}
+			\item  find\_oldest(\{\csq{Ethan}: 25, \csq{Lucas}: 30, \csq{Mia}: 29\}) $\rightarrow$ \csq{Lucas}
+		\end{itemize}
+
+
+
+	\item 	
+		In each input list, every number repeats at least once, except for one. Write a \textbf{function} that takes an array $numbers$
+		 and returns the single unique number.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  find\_unique([1, 2, 2, 3, 3, 4, 4]) $\rightarrow$ 1,
+			\item  find\_unique([7, 8, 8, 9, 9, 10, 10]) $\rightarrow$ 7,
+			\item  find\_unique([5, 6, 6, 7, 7, 8, 8, 5, 9]) $\rightarrow$ 9
+		\end{itemize}
+
+
+
+\item
+	Write a \textbf{function} that takes a dictionary, called $donations$, where the keys are donor names and the values are the amount donated. 
+	The function should return the total amount donated.
+	
+	\textbf{Examples:}  
+	\begin{itemize}  
+		\item total\_donations(\{\csq{John}: 100, \csq{Sarah}: 200, \csq{Mike}: 50\}) $\rightarrow$ 350
+		\item total\_donations(\{\csq{Anna}: 500, \csq{Tom}: 1000, \csq{Jerry}: 1500\}) $\rightarrow$ 3000
+		\item total\_donations(\{\csq{Chris}: 25, \csq{Alex}: 30, \csq{Morgan}: 45\}) $\rightarrow$ 100
+	\end{itemize}
+
+
+
+
+\end{enumerate}
+\pagebreak
+Dot Matrix \hfill Dictionaries quiz\\
+section 3\\
+\begin{enumerate}
+	%paper-based
+	\item 	
+		Write a \textbf{function} that takes a string $word$ and returns a dictionary containing the count of each letter in the word. 
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  letter\_count(\csq{hello}) $\rightarrow$ \{\csq{h}: 1, \csq{e}: 1, \csq{l}: 2, \csq{o}: 1\}
+			\item  letter\_count(\csq{mississippi}) $\rightarrow$ \{\csq{m}: 1, \csq{i}: 4, \csq{s}: 4, \csq{p}: 2\}
+			\item  letter\_count(\csq{apple}) $\rightarrow$ \{\csq{a}: 1, \csq{p}: 2, \csq{l}: 1, \csq{e}: 1\}
+		\end{itemize}
+
+
+	\item 	
+		%https://edabit.com/challenge/vTGXrd5ntYRk3t6Ma
+		An isogram is a word that has no duplicate letters. Write a \textbf{function} that takes a string $word$ 
+		and returns either True or False depending on whether or not it's an isogram.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  is\_isogram(\csq{algorism}) $\rightarrow$ True
+			\item  is\_isogram(\csq{password}) $\rightarrow$ False
+			\item  is\_isogram(\csq{consecutive}) $\rightarrow$ False
+		\end{itemize}
+
+
+\item
+	Write a \textbf{function} that takes a list of \textbf{fruits} and returns the total \textbf{caloric value} of the fruits consumed. You may use the following 
+	dictionary named $calories$:
+	\begin{center}
+		\textit{calories} = \{ \csq{apple} : 95, \csq{banana} : 105, \csq{orange} : 62, 
+			\csq{grape} 3, \csq{pear} : 102\}
+	\end{center}
+	Hint: You can calculate the total calories by summing up the caloric values of all valid 
+	fruits in the list. You may assume the \textit{calories} dictionary is defined in your code.  
+	You don't need to rewrite it.
+	
+	
+	\textbf{Examples:}  
+	\begin{itemize}  
+		\item total\_calories([\csq{apple}, \csq{banana}, \csq{orange}]) 
+			$\rightarrow$ 262 (since 95 + 105 + 62 = 262)
+		\item total\_calories([\csq{grape}, \csq{grape}, \csq{grape}, \csq{grape}, \csq{grape}]) 
+			$\rightarrow$ 15
+		\item total\_calories([\csq{banana}, \csq{pear}, \csq{apple}]) $\rightarrow$ 302
+	\end{itemize}
+
+
+\end{enumerate}
+\pagebreak
+Alfred Yankovic \hfill Dictionaries quiz\\
+section 2\\
+\begin{enumerate}
+\item
+	Write a \textbf{function} that takes a dictionary, called $donations$, where the keys are donor names and the values are the amount donated. 
+	The function should return the total amount donated.
+	
+	\textbf{Examples:}  
+	\begin{itemize}  
+		\item total\_donations(\{\csq{John}: 100, \csq{Sarah}: 200, \csq{Mike}: 50\}) $\rightarrow$ 350
+		\item total\_donations(\{\csq{Anna}: 500, \csq{Tom}: 1000, \csq{Jerry}: 1500\}) $\rightarrow$ 3000
+		\item total\_donations(\{\csq{Chris}: 25, \csq{Alex}: 30, \csq{Morgan}: 45\}) $\rightarrow$ 100
+	\end{itemize}
+
+
+
+
+	%paper-based
+	\item 	
+		Write a \textbf{function} that takes a dictionary, called $exams$, containing the course grades of a student, 
+		and returns the name of the course with the minimal grade.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  min\_grade(\{\csq{Physics}: 82, \csq{Math}: 65, \csq{History}: 75, 
+				\csq{Biology}: 95, \csq{English} : 87\}) $\rightarrow$ \csq{Math}
+			\item  min\_grade(\{\csq{Chemistry}: 78, \csq{Algebra}: 88, \csq{History}: 72,
+				 \csq{Geography}: 85\}) $\rightarrow$ \csq{History}
+			\item min\_grade(\{\csq{Art}: 90, \csq{Music}: 92, \csq{Drama}: 89\}) 
+				$\rightarrow$ \csq{Drama}
+		\end{itemize}
+
+
+	\item 	
+		Write a \textbf{function} that takes a dictionary, called $people$, containing the names and ages of a group of people, 
+		and returns the name of the youngest person.
+
+		\textbf{Examples:}		
+		\begin{itemize}
+			\item  find\_youngest(\{\csq{Emma}: 71, \csq{Jack}: 45, \csq{Olivia}: 82, \csq{Liam}: 39\}) $\rightarrow$ \csq{Liam}
+			\item  find\_youngest(\{\csq{Sophia}: 50, \csq{Mason}: 68, \csq{Ava}: 67, \csq{Noah}: 33\}) $\rightarrow$ \csq{Noah}
+			\item  find\_youngest(\{\csq{Ethan}: 25, \csq{Lucas}: 30, \csq{Mia}: 29\}) $\rightarrow$ \csq{Ethan}
+		\end{itemize}
+
+
+\end{enumerate}
+\pagebreak
+\end{document}

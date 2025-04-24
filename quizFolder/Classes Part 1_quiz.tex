@@ -1,0 +1,721 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts} % For math fonts.
+\usepackage{amssymb} % For other math symbols not covered by amsmath.
+\usepackage[pdftex]{graphicx} % For pictures, use \includegraphics[scale=decimal]{pic.png}; must be a .png file type.
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[colorlinks = true, urlcolor = blue]{hyperref}
+\usepackage{enumitem}
+\usepackage{graphbox} 
+\usepackage{subfig}
+\usepackage{multicol}
+\usepackage{nopageno}
+
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, calc}
+\usetikzlibrary{shapes.geometric,angles,quotes}
+\usepackage{tikz-3dplot}
+
+
+%page formatting
+\usepackage{fullpage}
+\setlength{\parindent}{0pt}
+
+
+\newcommand{\tab}{\hspace*{0.25in}}
+\newcommand{\csq}[1]{\reflectbox{''}#1''}  %This produces CS style quotes.
+\newcommand{\csqt}[1]{\text{\reflectbox{''}#1''}}  %This produces CS style quotes as text.
+
+
+\usepackage{listings}
+\lstset
+{ %Formatting for code in appendix
+    language=Python,
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=2,
+    breaklines=true,
+    breakatwhitespace=false,
+}
+
+
+\begin{document}
+
+
+
+%split_point
+
+%\end{document}
+Matt Priem \hfill Classes Part 1 quiz\\
+section 1\\
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 10
+%%%%%%%%%%%%%%%%%%%%%
+	\begin{minipage}{.6\textwidth}
+	\item Create a \textit{Vector} class.\\
+		A \textit{Vector} has
+		\begin{itemize}
+			\item x\_direction 
+			\item y\_direction
+		\end{itemize}
+		
+		A \textit{Vector} can do
+		\begin{itemize}
+			\item get\_magnitude
+		\end{itemize}
+	\end{minipage}
+		%
+	\begin{minipage}{.4\textwidth}
+		This class ``looks'' like 
+				
+		\vspace*{1em}
+		\begin{tabular}{|l|}
+			\hline Vector\\ \hline
+			x\_direction\\ y\_direction\\ \hline
+			get\_magnitude\\  \hline
+		\end{tabular}
+	\end{minipage}
+
+	\vspace*{2ex}
+	Create a constructor method that initializes all instance variables.\\
+	You should write getters and setters for each of the instance variables.\\
+	Instantiate an instance of the class. You may pass any initial values of your choosing.
+	
+	Hint: magnitude is calculated as $\sqrt{x^2 + y^2}$.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 12
+%%%%%%%%%%%%%%%%%%%%%
+	\begin{minipage}{.6\textwidth}
+		\item Create a \textit{TemperatureInCelsius} class.\\
+		
+		A \textit{TemperatureInCelsius} has
+		\begin{itemize}
+			\item temp\_value
+		\end{itemize}
+
+		A \textit{TemperatureInCelsius} can do
+		\begin{itemize}
+			\item to\_fahrenheit
+		\end{itemize}
+	\end{minipage}
+		%
+	\begin{minipage}{.4\textwidth}
+		This class ``looks'' like 
+				
+		\vspace*{1em}
+		\begin{tabular}{|l|}
+			\hline TemperatureInCelsius\\ \hline
+			temp\_value\\ \ \\  \hline
+			to\_fahrenheit\\ \ \\ \hline
+		\end{tabular}
+	\end{minipage}
+
+
+
+	\vspace*{2ex}
+	Clarification: temp\_value is the temperature in Celsius.\\
+	Create a constructor method that initializes all instance variables.\\
+	You should write getters and setters for each of the instance variables.\\
+	Instantiate an instance of the class. You may pass any initial values of your choosing.
+	
+	The to\_fahrenheit() method should return the temperature in Fahrenheit calculated as:\\
+	Fahrenheit = (Celsius * 9/5) + 32.\
+
+	%Create an \_\_str\_\_ method that returns a string in the format:\\
+	%"Temp: [celsius]C, Humidity: [humidity]\%, Pressure: [pressure]hPa"\\
+	%\tab \tab eg. "Temp: 25.0C, Humidity: 65\%, Pressure: 1013hPa".\\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 14
+%%%%%%%%%%%%%%%%%%%%%
+	\begin{minipage}{.6\textwidth}
+	\item Create a \textit{Circle} class.\\		
+		A \textit{Circle} has
+		\begin{itemize}
+			\item radius 
+		\end{itemize}
+
+		A \textit{Circle} can do
+		\begin{itemize}
+			%\item calculate\_area()
+			\item calculate\_circumference
+		\end{itemize}
+	\end{minipage}
+		%
+	\begin{minipage}{.4\textwidth}
+		This class ``looks'' like 
+				
+		\vspace*{1em}
+		\begin{tabular}{|l|}
+			\hline Circle\\ \hline
+			radius\\ \ \\  \hline
+			calculate\_circumference\\ \hline
+		\end{tabular}
+	\end{minipage}
+
+	\vspace*{2ex}
+	Create a constructor method that initializes all instance variables.\\
+	You should write getters and setters for each of the instance variables.\\
+	Instantiate an instance of the class. You may pass any initial values of your choosing.	
+
+	%The calculate\_area() method should return the area calculated as: $\pi \cdot \text{radius}^2$.\\
+	The calculate\_circumference() method should return the circumference calculated as: $2 \cdot \pi \cdot \text{radius}$.\\
+
+	%Create an \_\_str\_\_ method that returns a string in the format:\\
+	%"Circle(radius=[radius], color=[color], filled=[filled])"\\
+	%\tab \tab eg. "Circle(radius=5.0, color=red, filled=True)".\\
+
+
+\end{enumerate}
+\pagebreak
+Bart Simpson \hfill Classes Part 1 quiz\\
+section 1\\
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 8
+%%%%%%%%%%%%%%%%%%%%%
+	\begin{minipage}{.6\textwidth}
+		\item Create a \textit{Course} class.\\
+		A \textit{Course} has
+		\begin{itemize}
+			\item course\_code 
+			\item course\_name
+			\item instructor	
+		\end{itemize}
+
+		An \textit{Course} can do
+		\begin{itemize}
+			\item \textit{print\_info}
+		\end{itemize}	
+	\end{minipage}
+	%
+	\begin{minipage}{.4\textwidth}
+		This class ``looks'' like 
+				
+		\vspace*{1em}
+		\begin{tabular}{|l|}
+			\hline Course\\ \hline
+			course\_code\\ course\_name\\ instructor\\ \hline
+			print\_info\\  \hline
+		\end{tabular}
+	\end{minipage}
+
+	\vspace*{2ex}
+	Create a constructor method that initializes all instance variables.\\
+	You should write getters and setters for each of the instance variables.\\
+	Instantiate an instance of the class. You may pass any initial values of your choosing.
+
+	Write a method called \textit{print\_info}, which prints in the form \\
+		\tab \tab \tab ``[course\_code]: [course\_name] taught by [instructor]''\\
+	example. ``CIS101: Introduction to programming taught by Matt''.\\
+
+	%Create a \_\_str\_\_ method that returns a string in the format:\\
+	%"[course\_code]: [course\_name] taught by [instructor], has a max capacity of [max\_capacity]"\\
+	%\tab \tab eg. "CIS101: Introduction to programming taught by Dr.Smith, has a max capacity of 25".\\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 10
+%%%%%%%%%%%%%%%%%%%%%
+	\begin{minipage}{.6\textwidth}
+	\item Create a \textit{Vector} class.\\
+		A \textit{Vector} has
+		\begin{itemize}
+			\item x\_direction 
+			\item y\_direction
+		\end{itemize}
+		
+		A \textit{Vector} can do
+		\begin{itemize}
+			\item get\_magnitude
+		\end{itemize}
+	\end{minipage}
+		%
+	\begin{minipage}{.4\textwidth}
+		This class ``looks'' like 
+				
+		\vspace*{1em}
+		\begin{tabular}{|l|}
+			\hline Vector\\ \hline
+			x\_direction\\ y\_direction\\ \hline
+			get\_magnitude\\  \hline
+		\end{tabular}
+	\end{minipage}
+
+	\vspace*{2ex}
+	Create a constructor method that initializes all instance variables.\\
+	You should write getters and setters for each of the instance variables.\\
+	Instantiate an instance of the class. You may pass any initial values of your choosing.
+	
+	Hint: magnitude is calculated as $\sqrt{x^2 + y^2}$.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 6
+%%%%%%%%%%%%%%%%%%%%%
+	\item Create a \textit{Student} class.\\
+	\begin{minipage}{.6\textwidth}		
+		A \textit{Student} has
+		\begin{itemize}
+			\item A name
+			\item A major
+			\item A GPA	
+		\end{itemize}
+	
+		A \textit{Student} can do
+		\begin{itemize}
+			\item introduce themselves
+			\item study for exam
+		\end{itemize}
+	\end{minipage} 
+	%
+	\begin{minipage}{.4\textwidth}
+		This class \csq{looks} like
+		 
+		\vspace*{1em}
+		\begin{tabular}{|l|}
+			\hline Student\\ \hline
+			name\\ major\\ GPA\\ \hline
+			introduce\\ study\_for\_exam \\  \hline
+		\end{tabular}
+	\end{minipage}
+
+	\vspace*{2ex}
+	You should write getters and setters for each of the instance variables.\
+
+	An introduction should be of the form: \underline{Hi, I'm  \textit{name}.  
+	I'm studying \textit{major}.}\\
+	\tab \tab eg. Hi. I'm Maria. I'm studying Computer Science.\\
+
+	Studying for an exam should increase the GPA by \underline{0.2} points. (up to a maximum of 4.0)\\  
+	It should be of the form: \\
+	I'm hitting the books! My GPA increased from \textit{old GPA} to \textit{new GPA}.\\
+	\tab \tab eg. I'm hitting the books! My GPA increased from 3.5 to 3.7.\\
+
+
+\end{enumerate}
+\pagebreak
+Lone Star \hfill Classes Part 1 quiz\\
+section 2\\
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 8
+%%%%%%%%%%%%%%%%%%%%%
+	\begin{minipage}{.6\textwidth}
+		\item Create a \textit{Course} class.\\
+		A \textit{Course} has
+		\begin{itemize}
+			\item course\_code 
+			\item course\_name
+			\item instructor	
+		\end{itemize}
+
+		An \textit{Course} can do
+		\begin{itemize}
+			\item \textit{print\_info}
+		\end{itemize}	
+	\end{minipage}
+	%
+	\begin{minipage}{.4\textwidth}
+		This class ``looks'' like 
+				
+		\vspace*{1em}
+		\begin{tabular}{|l|}
+			\hline Course\\ \hline
+			course\_code\\ course\_name\\ instructor\\ \hline
+			print\_info\\  \hline
+		\end{tabular}
+	\end{minipage}
+
+	\vspace*{2ex}
+	Create a constructor method that initializes all instance variables.\\
+	You should write getters and setters for each of the instance variables.\\
+	Instantiate an instance of the class. You may pass any initial values of your choosing.
+
+	Write a method called \textit{print\_info}, which prints in the form \\
+		\tab \tab \tab ``[course\_code]: [course\_name] taught by [instructor]''\\
+	example. ``CIS101: Introduction to programming taught by Matt''.\\
+
+	%Create a \_\_str\_\_ method that returns a string in the format:\\
+	%"[course\_code]: [course\_name] taught by [instructor], has a max capacity of [max\_capacity]"\\
+	%\tab \tab eg. "CIS101: Introduction to programming taught by Dr.Smith, has a max capacity of 25".\\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 13
+%%%%%%%%%%%%%%%%%%%%%
+	\begin{minipage}{.6\textwidth}
+	\item Create a \textit{Rectangle} class.\\
+		A \textit{Rectangle} has
+		\begin{itemize}
+			\item width 
+			\item height
+		\end{itemize}
+
+		A \textit{Rectangle} can do
+		\begin{itemize}
+			\item calculate\_area
+		\end{itemize}
+	\end{minipage}
+		%
+	\begin{minipage}{.4\textwidth}
+		This class ``looks'' like 
+				
+		\vspace*{1em}
+		\begin{tabular}{|l|}
+			\hline Rectangle\\ \hline
+			width\\ height \\  \hline
+			calculate\_area\\ \hline
+		\end{tabular}
+	\end{minipage}
+
+
+	\vspace*{2ex}
+	Create a constructor method that initializes all instance variables.\\
+	You should write getters and setters for each of the instance variables.\\
+	Instantiate an instance of the class. You may pass any initial values of your choosing.
+	
+	The calculate\_area() method should return the area calculated as: width * height.\\
+
+	%Create an \_\_str\_\_ method that returns a string in the format:\\
+	%"Rectangle([width] × [height], [color])"\\
+	%\tab \tab eg. "Rectangle(10.5 × 20.0, blue)".\\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 6
+%%%%%%%%%%%%%%%%%%%%%
+	\item Create a \textit{Student} class.\\
+	\begin{minipage}{.6\textwidth}		
+		A \textit{Student} has
+		\begin{itemize}
+			\item A name
+			\item A major
+			\item A GPA	
+		\end{itemize}
+	
+		A \textit{Student} can do
+		\begin{itemize}
+			\item introduce themselves
+			\item study for exam
+		\end{itemize}
+	\end{minipage} 
+	%
+	\begin{minipage}{.4\textwidth}
+		This class \csq{looks} like
+		 
+		\vspace*{1em}
+		\begin{tabular}{|l|}
+			\hline Student\\ \hline
+			name\\ major\\ GPA\\ \hline
+			introduce\\ study\_for\_exam \\  \hline
+		\end{tabular}
+	\end{minipage}
+
+	\vspace*{2ex}
+	You should write getters and setters for each of the instance variables.\
+
+	An introduction should be of the form: \underline{Hi, I'm  \textit{name}.  
+	I'm studying \textit{major}.}\\
+	\tab \tab eg. Hi. I'm Maria. I'm studying Computer Science.\\
+
+	Studying for an exam should increase the GPA by \underline{0.2} points. (up to a maximum of 4.0)\\  
+	It should be of the form: \\
+	I'm hitting the books! My GPA increased from \textit{old GPA} to \textit{new GPA}.\\
+	\tab \tab eg. I'm hitting the books! My GPA increased from 3.5 to 3.7.\\
+
+
+\end{enumerate}
+\pagebreak
+Dot Matrix \hfill Classes Part 1 quiz\\
+section 3\\
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 15
+%%%%%%%%%%%%%%%%%%%%%
+	\begin{minipage}{.6\textwidth}
+		\item Create a \textit{Recipe} class.\\
+		A \textit{Recipe} has
+		\begin{itemize}
+			\item name 
+			\item cooking\_time
+			%\item calores\_per\_serving
+		\end{itemize}
+
+		A \textit{Recipe} can do
+		\begin{itemize}
+			\item is\_quick\_meal
+			%\item calculate\_calories\_total(servings)
+		\end{itemize}
+	\end{minipage}
+		%
+	\begin{minipage}{.4\textwidth}
+		This class ``looks'' like 
+				
+		\vspace*{1em}
+		\begin{tabular}{|l|}
+			\hline Circle\\ \hline
+			name\\ cooking\_time \\  \hline
+			is\_quick\_meal\\ \hline
+		\end{tabular}
+	\end{minipage}
+
+	\vspace*{2ex}
+	Create a constructor method that initializes all instance variables.\\
+	You should write getters and setters for each of the instance variables.\\
+	Instantiate an instance of the class. You may pass any initial values of your choosing.	
+
+	The is\_quick\_meal() method should return True if the cooking\_time is less than 30 minutes and False 
+	if it takes 30 minutes or more.\\
+	%The calculate\_calories\_total(servings) method should return the total calories based on the number of servings requested.\
+	
+	%Create an \_\_str\_\_ method that returns a string in the format:\\
+	%"Recipe: [name] | Time: [cooking\_time] min | Calories: [calories\_per\_serving] per serving"\\
+	%\tab \tab eg. "Recipe: Pasta Carbonara | Time: 25 min | Calories: 380 per serving".\\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 6
+%%%%%%%%%%%%%%%%%%%%%
+	\item Create a \textit{Student} class.\\
+	\begin{minipage}{.6\textwidth}		
+		A \textit{Student} has
+		\begin{itemize}
+			\item A name
+			\item A major
+			\item A GPA	
+		\end{itemize}
+	
+		A \textit{Student} can do
+		\begin{itemize}
+			\item introduce themselves
+			\item study for exam
+		\end{itemize}
+	\end{minipage} 
+	%
+	\begin{minipage}{.4\textwidth}
+		This class \csq{looks} like
+		 
+		\vspace*{1em}
+		\begin{tabular}{|l|}
+			\hline Student\\ \hline
+			name\\ major\\ GPA\\ \hline
+			introduce\\ study\_for\_exam \\  \hline
+		\end{tabular}
+	\end{minipage}
+
+	\vspace*{2ex}
+	You should write getters and setters for each of the instance variables.\
+
+	An introduction should be of the form: \underline{Hi, I'm  \textit{name}.  
+	I'm studying \textit{major}.}\\
+	\tab \tab eg. Hi. I'm Maria. I'm studying Computer Science.\\
+
+	Studying for an exam should increase the GPA by \underline{0.2} points. (up to a maximum of 4.0)\\  
+	It should be of the form: \\
+	I'm hitting the books! My GPA increased from \textit{old GPA} to \textit{new GPA}.\\
+	\tab \tab eg. I'm hitting the books! My GPA increased from 3.5 to 3.7.\\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 9
+%%%%%%%%%%%%%%%%%%%%%
+	\begin{minipage}{.6\textwidth}
+	\item Create a \textit{Point} class.\\		
+		A \textit{Point} has
+		\begin{itemize}
+			\item x\_coordinate 
+			\item y\_coordinate 
+		\end{itemize}
+
+		A \textit{Point} can do
+		\begin{itemize}
+			\item \textit{print\_info}
+		\end{itemize}
+	\end{minipage}
+	%
+	\begin{minipage}{.4\textwidth}
+		This class ``looks'' like 
+				
+		\vspace*{1em}
+		\begin{tabular}{|l|}
+			\hline Course\\ \hline
+			x\_coordinate\\ y\_coordinate\\ \hline
+			print\_info\\  \hline
+		\end{tabular}
+	\end{minipage}
+
+	\vspace*{2ex}
+	Create a constructor method that initializes all instance variables.\\
+	You should write getters and setters for each of the instance variables.\\
+	Instantiate an instance of the class. You may pass any initial values of your choosing.
+
+	Write a method called \textit{print\_info}, which prints in the form \\
+		\tab \tab \tab ``(x,y)=([x\_coordinate], [y\_coordinate])''\\
+	example. ``(x,y)=( 4, 5 )''.\\
+
+	%Create a \_\_str\_\_ method that returns a string in the format:\\
+	%"( [x\_coordinate], [y\_coordinate], [z\_coordinate] )"\\
+	%\tab \tab eg. "( 4, 5, 6 )".\\
+
+
+\end{enumerate}
+\pagebreak
+Alfred Yankovic \hfill Classes Part 1 quiz\\
+section 2\\
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 8
+%%%%%%%%%%%%%%%%%%%%%
+	\begin{minipage}{.6\textwidth}
+		\item Create a \textit{Course} class.\\
+		A \textit{Course} has
+		\begin{itemize}
+			\item course\_code 
+			\item course\_name
+			\item instructor	
+		\end{itemize}
+
+		An \textit{Course} can do
+		\begin{itemize}
+			\item \textit{print\_info}
+		\end{itemize}	
+	\end{minipage}
+	%
+	\begin{minipage}{.4\textwidth}
+		This class ``looks'' like 
+				
+		\vspace*{1em}
+		\begin{tabular}{|l|}
+			\hline Course\\ \hline
+			course\_code\\ course\_name\\ instructor\\ \hline
+			print\_info\\  \hline
+		\end{tabular}
+	\end{minipage}
+
+	\vspace*{2ex}
+	Create a constructor method that initializes all instance variables.\\
+	You should write getters and setters for each of the instance variables.\\
+	Instantiate an instance of the class. You may pass any initial values of your choosing.
+
+	Write a method called \textit{print\_info}, which prints in the form \\
+		\tab \tab \tab ``[course\_code]: [course\_name] taught by [instructor]''\\
+	example. ``CIS101: Introduction to programming taught by Matt''.\\
+
+	%Create a \_\_str\_\_ method that returns a string in the format:\\
+	%"[course\_code]: [course\_name] taught by [instructor], has a max capacity of [max\_capacity]"\\
+	%\tab \tab eg. "CIS101: Introduction to programming taught by Dr.Smith, has a max capacity of 25".\\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 15
+%%%%%%%%%%%%%%%%%%%%%
+	\begin{minipage}{.6\textwidth}
+		\item Create a \textit{Recipe} class.\\
+		A \textit{Recipe} has
+		\begin{itemize}
+			\item name 
+			\item cooking\_time
+			%\item calores\_per\_serving
+		\end{itemize}
+
+		A \textit{Recipe} can do
+		\begin{itemize}
+			\item is\_quick\_meal
+			%\item calculate\_calories\_total(servings)
+		\end{itemize}
+	\end{minipage}
+		%
+	\begin{minipage}{.4\textwidth}
+		This class ``looks'' like 
+				
+		\vspace*{1em}
+		\begin{tabular}{|l|}
+			\hline Circle\\ \hline
+			name\\ cooking\_time \\  \hline
+			is\_quick\_meal\\ \hline
+		\end{tabular}
+	\end{minipage}
+
+	\vspace*{2ex}
+	Create a constructor method that initializes all instance variables.\\
+	You should write getters and setters for each of the instance variables.\\
+	Instantiate an instance of the class. You may pass any initial values of your choosing.	
+
+	The is\_quick\_meal() method should return True if the cooking\_time is less than 30 minutes and False 
+	if it takes 30 minutes or more.\\
+	%The calculate\_calories\_total(servings) method should return the total calories based on the number of servings requested.\
+	
+	%Create an \_\_str\_\_ method that returns a string in the format:\\
+	%"Recipe: [name] | Time: [cooking\_time] min | Calories: [calories\_per\_serving] per serving"\\
+	%\tab \tab eg. "Recipe: Pasta Carbonara | Time: 25 min | Calories: 380 per serving".\\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 14
+%%%%%%%%%%%%%%%%%%%%%
+	\begin{minipage}{.6\textwidth}
+	\item Create a \textit{Circle} class.\\		
+		A \textit{Circle} has
+		\begin{itemize}
+			\item radius 
+		\end{itemize}
+
+		A \textit{Circle} can do
+		\begin{itemize}
+			%\item calculate\_area()
+			\item calculate\_circumference
+		\end{itemize}
+	\end{minipage}
+		%
+	\begin{minipage}{.4\textwidth}
+		This class ``looks'' like 
+				
+		\vspace*{1em}
+		\begin{tabular}{|l|}
+			\hline Circle\\ \hline
+			radius\\ \ \\  \hline
+			calculate\_circumference\\ \hline
+		\end{tabular}
+	\end{minipage}
+
+	\vspace*{2ex}
+	Create a constructor method that initializes all instance variables.\\
+	You should write getters and setters for each of the instance variables.\\
+	Instantiate an instance of the class. You may pass any initial values of your choosing.	
+
+	%The calculate\_area() method should return the area calculated as: $\pi \cdot \text{radius}^2$.\\
+	The calculate\_circumference() method should return the circumference calculated as: $2 \cdot \pi \cdot \text{radius}$.\\
+
+	%Create an \_\_str\_\_ method that returns a string in the format:\\
+	%"Circle(radius=[radius], color=[color], filled=[filled])"\\
+	%\tab \tab eg. "Circle(radius=5.0, color=red, filled=True)".\\
+
+
+\end{enumerate}
+\pagebreak
+\end{document}

@@ -1,0 +1,263 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts} % For math fonts.
+\usepackage{amssymb} % For other math symbols not covered by amsmath.
+\usepackage[pdftex]{graphicx} % For pictures, use %\includegraphics[scale=decimal]{pic.png}; must be a .png file type.
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[colorlinks = true, urlcolor = blue]{hyperref}
+\usepackage{enumitem}
+\usepackage{graphbox} 
+\usepackage{subfig}
+\usepackage{multicol}
+\usepackage{wrapfig}
+
+
+\newcommand{\tab}{\hspace*{0.25in}}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, calc}
+\usetikzlibrary{shapes.geometric,angles,quotes}
+\usepackage{tikz-3dplot}
+
+\newcommand{\csq}[1]{\reflectbox{''}#1''}  %This produces CS style quotes.
+
+
+
+\usepackage{fullpage}
+\usepackage{listings}
+\lstset
+{ %Formatting for code in appendix
+    language=Python,
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=2,
+    breaklines=true,
+    breakatwhitespace=false,
+}
+
+
+\begin{document}
+
+
+\begin{flushright}
+Intro functions\end{flushright}
+
+\vspace*{-1.5em}
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+
+\vspace*{2em}
+
+\begin{enumerate}
+
+%start_of_questions
+
+
+%new_question
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 1
+%%%%%%%%%%%%%%%%%%%%%
+	\item 
+		Write 100 integers created randomly into a file named \textit{QuizInts.txt}. 
+		The numbers should be between 50 and 200 (inclusively). 
+		Each number should be on a new line.\\
+		Hint: Your code will likely use the following two lines of code somewhere in your program.\\
+			\tab import random.\\
+			\tab random.randint(50,200)
+
+%new_question
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 2
+%%%%%%%%%%%%%%%%%%%%%			
+	\item 
+		Write a Python program that will open a file named \textit{thisFile.txt} and write every 
+		other line into the file
+		\textit{thatFile.txt}
+
+%new_question
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 3
+%%%%%%%%%%%%%%%%%%%%%
+	\item
+		Create a file named \textit{MyName.txt}, and write your name to it (your actual name).	 
+		Then read the file and print the letters of your name one at a time where each letter is on a new line.
+		\begin{figure}[ht]
+			\centering
+			\begin{minipage}[b]{.4\textwidth}
+				\centering
+				\includegraphics[scale=1]{imgs/nameFile.png}
+				\caption{This is the file.}	
+			\end{minipage}
+			\hspace*{2em}
+			\begin{minipage}[b]{.4\textwidth}
+				\centering
+				\includegraphics[width=1\textwidth]{imgs/nameOutput.png}
+				\caption{This is the output.}
+			\end{minipage}
+		\end{figure}
+
+
+%new_question
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 4
+%%%%%%%%%%%%%%%%%%%%%		
+	\item
+		Assume you are working on a file named \textit{MyCode.py} and there is a file \textit{MyWords.txt} in the same 
+		working directory (same folder). The \textit{MyWords.txt} file contains exactly 20 words all written on separate
+		lines. Read the file, and then write the words to a new file in four lines of five words.
+
+
+
+
+
+
+%new_question
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 5
+%%%%%%%%%%%%%%%%%%%%%
+	\item 
+		A local middle school is trying to count the total number of lunches they served last year.  
+		They have a text file named \textit{LunchData.txt} that has a date and the number of lunches served on that date.    
+		There is one entry for every day last year.  A portion of that file is displayed below.  
+		Write a program that calculates and then prints the total number of lunches served last year. 
+		\begin{flushright}
+			\includegraphics[scale=.65]{imgs/LunchData.PNG}
+		\end{flushright}
+
+
+
+
+%new_question
+
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 6
+%%%%%%%%%%%%%%%%%%%%%
+	\item
+		Assume you have a text file called \textit{aMorePerfectUnion.txt} that contains a transcript of Barack Obama's 
+		March $18^{th}$, 2008 speech \textit{A More Perfect Union}. Create a dictionary consisting each word and the 
+		amount of times that word appears in the speech. Print the dictionary.
+
+
+%new_question
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 7
+%%%%%%%%%%%%%%%%%%%%%
+	\item 
+		A city library keeps track of the number of visitors each day in a file named \textit{LibraryVisitsData.csv}.  
+		The file contains a date and the number of visitors who entered the library on that date.  
+		There is one entry for each day of the year. A portion of that file is shown below.  
+		Write a program that reads the file, calculates, and prints the average number of visitors per day over the year.
+		
+		\begin{flushright}
+			\includegraphics[scale=.65]{imgs/LibraryVisitsData.PNG}
+		\end{flushright}
+
+
+%new_question
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 8
+%%%%%%%%%%%%%%%%%%%%%
+	\item 
+		A local gym keeps a log of how many calories were burned in workout sessions each day, stored in a file called \textit{CaloriesBurnedData.txt}.  
+		Each line of the file includes the date and the total number of calories burned by all gym members on that day.  
+		A portion of the file is shown below.  
+		Write a program that reads the file and prints the day with the highest number of calories burned.
+		
+		\begin{flushright}
+			\includegraphics[scale=.65]{imgs/CaloriesBurnedData.PNG}
+		\end{flushright}
+
+
+%new_question
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 9
+%%%%%%%%%%%%%%%%%%%%%
+	\item 
+		A school science fair recorded the daily number of students who visited each exhibit.  
+		This information is stored in a file called \textit{ScienceFairVisitors.txt}, which includes a header row.  
+		Each line contains the date and the number of visitors for that day.  
+		Write a program that reads the file, and then prints the total number of visitors recorded over the entire period.
+		
+		\begin{flushright}
+			\includegraphics[scale=.65]{imgs/ScienceFairVisitorsData.PNG}
+		\end{flushright}
+
+
+%new_question
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 10
+%%%%%%%%%%%%%%%%%%%%%
+	\item 
+		A book club tracks how many pages each member read, stored in a file named 
+		\textit{PagesRead.csv}. The file includes a header row and contains the member's 
+		name and the number of pages they read for each book.  
+		Write a program that reads the file, stores the data in a dictionary where the key is 
+		the member name and the value is the total pages read by that member (across both books), 
+		and then prints each member's name and their total pages read.
+		
+		\begin{flushright}
+			\includegraphics[scale=.65]{imgs/PagesReadData.PNG}
+		\end{flushright}
+
+
+%new_question
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 11
+%%%%%%%%%%%%%%%%%%%%%
+	\item 
+		A music streaming app tracks how many times each user listens to different songs.  
+		The data is stored in a file called \textit{SongPlays.txt}, which includes a header row.  
+		Each line contains the user’s name and the number of times they played a song on a given day.  
+		Write a program that reads the file, uses a dictionary to store the total plays per user, 
+		and then prints out each user and their total number of song plays.
+		
+		\begin{flushright}
+			\includegraphics[scale=.65]{imgs/SongPlaysData.PNG}
+		\end{flushright}
+
+
+
+%new_question
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 12
+%%%%%%%%%%%%%%%%%%%%%
+	\item 
+		A weather station logs the temperature each day and stores the data in a file called \textit{DailyTemperatures.csv}.  
+		The file includes a header row and each line contains the date and the temperature recorded on that day.  
+		Write a program that reads the file, stores all the temperatures in a list, and then prints the highest, lowest, and average temperature recorded.
+		
+		\begin{flushright}
+			\includegraphics[scale=.65]{imgs/DailyTemperaturesData.PNG}
+		\end{flushright}
+
+
+
+
+%end_of_questions
+\end{enumerate}
+\end{document}
+
+
+
+%new_question
+%%%%%%%%%%%%%%%%%%%%%
+	% Problem 5
+%%%%%%%%%%%%%%%%%%%%%
+	\item
+		A local business is trying to count the total number of customer they had last year.  
+		They have a text file named \textit{CustomerData.txt} that has a date and the number of customers on that date.    
+		There is one entry for every day this year.  A potion of that file is displayed below.  
+		Write a program that calculates and then prints the total number of customers the business had last year.\\ 
+		\begin{flushright}
+			\fbox{\includegraphics[scale=1.5]{imgs/ScienceFairVisitorsData.PNG}}
+		\end{flushright}
+
+
+
+
+
+
